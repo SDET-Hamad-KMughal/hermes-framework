@@ -34,4 +34,5 @@ __all__ = [
     "Page",
     "SessionManager",
     "URLManager",
+    "create_crawler_logger",
 ]
