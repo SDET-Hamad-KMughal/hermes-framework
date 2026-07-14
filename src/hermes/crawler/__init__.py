@@ -13,6 +13,7 @@ from hermes.crawler.models import (
     Page,
 )
 from hermes.crawler.queue import CrawlQueue, CrawlTarget
+from hermes.crawler.report import CrawlReport, CrawlStatistics
 from hermes.crawler.session import SessionManager
 from hermes.crawler.url_manager import URLManager
 
@@ -22,7 +23,9 @@ __all__ = [
     "CrawlerConfig",
     "CrawlEngine",
     "CrawlQueue",
+    "CrawlReport",
     "CrawlResult",
+    "CrawlStatistics",
     "CrawlTarget",
     "DOMExtractor",
     "Form",
