@@ -11,13 +11,16 @@ from hermes.crawler.models import (
     Link,
     Page,
 )
+from hermes.crawler.queue import CrawlQueue, CrawlTarget
 from hermes.crawler.url_manager import URLManager
 
 __all__ = [
     "Action",
     "BrowserManager",
     "CrawlerConfig",
+    "CrawlQueue",
     "CrawlResult",
+    "CrawlTarget",
     "DOMExtractor",
     "Form",
     "FormField",
