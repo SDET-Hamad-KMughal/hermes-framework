@@ -13,6 +13,7 @@ from hermes.crawler.models import (
     Page,
 )
 from hermes.crawler.queue import CrawlQueue, CrawlTarget
+from hermes.crawler.session import SessionManager
 from hermes.crawler.url_manager import URLManager
 
 __all__ = [
@@ -28,5 +29,6 @@ __all__ = [
     "FormField",
     "Link",
     "Page",
+    "SessionManager",
     "URLManager",
 ]

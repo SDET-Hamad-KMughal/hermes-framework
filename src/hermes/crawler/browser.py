@@ -21,6 +21,11 @@ class BrowserManager:
         """Return whether the browser session has been started."""
         return self._browser is not None and self._context is not None
 
+    @property
+    def context(self) -> BrowserContext | None:
+        """Return the active browser context, if available."""
+        return self._context
+
     def start(self) -> BrowserManager:
         """Start Playwright, Chromium, and a browser context."""
         if self.is_started:
