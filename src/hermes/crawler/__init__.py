@@ -3,6 +3,7 @@
 from hermes.crawler.browser import BrowserManager
 from hermes.crawler.config import CrawlerConfig
 from hermes.crawler.dom_extractor import DOMExtractor
+from hermes.crawler.engine import CrawlEngine
 from hermes.crawler.models import (
     Action,
     CrawlResult,
@@ -18,6 +19,7 @@ __all__ = [
     "Action",
     "BrowserManager",
     "CrawlerConfig",
+    "CrawlEngine",
     "CrawlQueue",
     "CrawlResult",
     "CrawlTarget",
