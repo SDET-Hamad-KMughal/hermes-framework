@@ -21,8 +21,8 @@ class SemanticRuleClassifier:
 
     _RULES: tuple[tuple[OperationType, tuple[str, ...]], ...] = (
         (OperationType.LOGOUT, ("logout", "log out", "sign out")),
-        (OperationType.LOGIN, ("login", "log in", "sign in")),
-        (OperationType.REGISTER, ("register", "sign up", "create account")),
+        (OperationType.LOGIN, ("login", "log in", "sign in", "authenticate session")),
+        (OperationType.REGISTER, ("register", "sign up", "create account", "finalize registration")),
         (OperationType.ADD_TO_CART, ("add to cart", "add cart")),
         (
             OperationType.REMOVE_FROM_CART,

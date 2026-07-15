@@ -80,7 +80,7 @@ def execute_evaluation(
         pipeline = EvaluationPipeline(
             runner=WorkflowExecutionRunner(),
             comparator=BehaviorComparator(),
-            mutation_plan=MutationPlan(),
+            mutation_plan=MutationPlan(max_mutations=3),
         )
 
         return pipeline.evaluate(

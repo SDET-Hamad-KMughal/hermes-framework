@@ -55,10 +55,12 @@ class StateGraphBuilder:
     ) -> None:
         """Add transitions to crawler-discovered target states."""
         for action in page.actions:
-            if not action.target:
-                continue
+            target_state = (
+                states_by_url.get(action.target)
+                if action.target
+                else source_state
+            )
 
-            target_state = states_by_url.get(action.target)
             if target_state is None:
                 continue
 

@@ -36,10 +36,6 @@ class SemanticOperationDiscovery:
                 transition.label,
                 transition.selector,
                 transition.semantic_target,
-                source_state.title if source_state else None,
-                source_state.url if source_state else None,
-                target_state.title if target_state else None,
-                target_state.url if target_state else None,
             )
 
             operations.append(
