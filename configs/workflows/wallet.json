@@ -1,0 +1,44 @@
+{
+  "workflow_id": "authenticated-wallet-workflow",
+  "name": "Authenticated Wallet Reset Workflow",
+  "steps": [
+    {
+      "operation_type": "login",
+      "label": "Navigate to Login",
+      "source_state_id": "home",
+      "target_state_id": "http://127.0.0.1:5000/login",
+      "selector": null,
+      "metadata": {}
+    },
+    {
+      "operation_type": "login",
+      "label": "Authenticate Session",
+      "source_state_id": "login",
+      "target_state_id": null,
+      "selector": "button[type=\"submit\"]",
+      "metadata": {
+        "credentials": {
+          "username": "buyer@hermesbench.org",
+          "password": "password123"
+        },
+        "username_selector": "input[name=\"email\"]",
+        "password_selector": "input[name=\"password\"]",
+        "submit_selector": "button[type=\"submit\"]"
+      }
+    },
+    {
+      "operation_type": "top_up_wallet",
+      "label": "Reset Wallet Balance",
+      "source_state_id": "profile",
+      "target_state_id": "http://127.0.0.1:5000/topup",
+      "selector": null,
+      "metadata": {
+        "expected_balance": 100.0
+      }
+    }
+  ],
+  "metadata": {
+    "benchmark": "hermes-bench",
+    "category": "wallet"
+  }
+}
