@@ -1,0 +1,9 @@
+{
+  "benchmark": "hermes-bench",
+  "anomalies": [],
+  "notes": [
+    "Known anomalies will be added only after they are deliberately implemented and independently verified.",
+    "Integration divergences are not automatically treated as confirmed bugs.",
+    "Each anomaly must include an identifier, affected workflow, mutation strategy, expected behavior, and reproducible oracle."
+  ]
+}

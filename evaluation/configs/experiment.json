@@ -1,0 +1,30 @@
+{
+  "experiment_id": "hermes-bench-evaluation-v1",
+  "benchmark": "hermes-bench",
+  "base_url": "http://127.0.0.1:5000",
+  "workflows": [
+    "configs/workflows/login.json",
+    "configs/workflows/cart.json",
+    "configs/workflows/checkout.json",
+    "configs/workflows/wallet.json",
+    "configs/workflows/order_history.json"
+  ],
+  "groups": {
+    "baseline": true,
+    "generic_mutation": true,
+    "hypothesis_mutation": true
+  },
+  "runs_per_workflow": 5,
+  "reset_browser_state": true,
+  "headless": true,
+  "comparator": {
+    "divergence_threshold": 0.30,
+    "duration_tolerance_seconds": 1.0
+  },
+  "outputs": {
+    "raw_directory": "evaluation/raw",
+    "aggregated_directory": "evaluation/aggregated",
+    "tables_directory": "evaluation/tables",
+    "figures_directory": "evaluation/figures"
+  }
+}
