@@ -1,3 +1,4 @@
+from hermes.prioritizer.scorer import WorkflowScorer
 """Workflow prioritization components for HERMES."""
 
 from hermes.prioritizer.models import (
@@ -8,4 +9,5 @@ from hermes.prioritizer.models import (
 __all__ = [
     "PrioritizationConfig",
     "WorkflowScore",
+    "WorkflowScorer",
 ]

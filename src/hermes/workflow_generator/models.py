@@ -58,6 +58,49 @@ class GeneratedWorkflow:
                 "terminal_state_id must not be empty"
             )
 
+    @classmethod
+    def from_dict(
+        cls,
+        payload: dict[str, Any],
+    ) -> "GeneratedWorkflow":
+        """Reconstruct a generated workflow from serialized data."""
+
+        from hermes.mutation.models import Workflow, WorkflowStep
+        from hermes.semantic.models import OperationType
+
+        workflow_data = payload["workflow"]
+
+        steps = tuple(
+            WorkflowStep(
+                operation_type=OperationType(
+                    item["operation_type"]
+                ),
+                label=item["label"],
+                source_state_id=item["source_state_id"],
+                target_state_id=item.get("target_state_id"),
+                selector=item.get("selector"),
+                metadata=dict(item.get("metadata", {})),
+            )
+            for item in workflow_data.get("steps", [])
+        )
+
+        workflow = Workflow(
+            workflow_id=workflow_data["workflow_id"],
+            name=workflow_data["name"],
+            steps=steps,
+            metadata=dict(
+                workflow_data.get("metadata", {})
+            ),
+        )
+
+        return cls(
+            workflow=workflow,
+            state_path=tuple(payload["state_path"]),
+            operation_count=int(payload["operation_count"]),
+            terminal_state_id=payload["terminal_state_id"],
+            metadata=dict(payload.get("metadata", {})),
+        )
+
     def to_dict(self) -> dict[str, Any]:
         return {
             "workflow": self.workflow.to_dict(),
