@@ -919,3 +919,411 @@ The framework automatically produces:
 Running the evaluation from scratch regenerates all experimental artifacts, ensuring complete reproducibility.
 
 ---
+---
+
+# Framework Modules
+
+HERMES is implemented as a collection of independent research modules. Each module performs a well-defined task in the workflow fuzzing pipeline and communicates through structured intermediate artifacts.
+
+This modular architecture simplifies experimentation, extension, and comparative evaluation.
+
+---
+
+# 1. Crawler
+
+## Purpose
+
+The crawler explores the target web application and discovers navigable pages, forms, and workflow entry points.
+
+Rather than performing random exploration, the crawler records information useful for later semantic reasoning.
+
+### Responsibilities
+
+- Discover reachable pages
+- Enumerate links
+- Detect interactive elements
+- Capture forms
+- Record navigation paths
+- Produce crawler reports
+
+### Output
+
+The crawler generates structured observations that become the input for state graph construction.
+
+---
+
+# 2. State Graph Builder
+
+## Purpose
+
+The state graph builder converts crawler observations into a directed graph representing application states and transitions.
+
+Each node represents an application state.
+
+Each edge represents an executable workflow transition.
+
+### Responsibilities
+
+- Build directed graph
+- Remove duplicate states
+- Connect transitions
+- Preserve navigation order
+- Export graph representation
+
+### Output
+
+A reusable workflow graph describing the application's navigational structure.
+
+---
+
+# 3. Semantic Discovery
+
+## Purpose
+
+URLs alone do not describe business behavior.
+
+Semantic Discovery identifies meaningful operations by analyzing page content, actions, and navigation context.
+
+Instead of producing:
+
+```
+GET /checkout
+```
+
+HERMES identifies:
+
+```
+Checkout
+```
+
+Likewise,
+
+```
+POST /login
+```
+
+becomes
+
+```
+User Authentication
+```
+
+### Example Operations
+
+- Login
+- Logout
+- Checkout
+- Wallet Top-up
+- View Orders
+- View Profile
+- Product Browsing
+- Cart Management
+
+---
+
+# 4. Workflow Generator
+
+## Purpose
+
+The workflow generator combines semantic operations into executable business workflows.
+
+Example workflow:
+
+```
+Login
+
+↓
+
+Browse Products
+
+↓
+
+Add Item
+
+↓
+
+Checkout
+
+↓
+
+View Orders
+```
+
+These workflows become the baseline used during scientific evaluation.
+
+### Responsibilities
+
+- Generate workflows
+- Remove duplicates
+- Preserve prerequisites
+- Validate execution order
+- Export workflow definitions
+
+---
+
+# 5. Workflow Prioritization
+
+## Purpose
+
+Large applications may contain hundreds of workflows.
+
+Executing every workflow is inefficient.
+
+The prioritization engine ranks workflows according to execution value.
+
+Example ranking criteria include:
+
+- workflow length
+- state transitions
+- semantic diversity
+- operation uniqueness
+- execution cost
+
+Higher-ranked workflows are evaluated first.
+
+---
+
+# 6. Generic Mutation Engine
+
+## Purpose
+
+The generic mutation engine creates structural variations of baseline workflows.
+
+These mutations intentionally modify workflow structure while preserving executable semantics whenever possible.
+
+Current mutation strategies include:
+
+### Step Removal
+
+Removes one workflow operation.
+
+Example
+
+```
+Login
+
+↓
+
+Checkout
+```
+
+↓
+
+```
+Checkout
+```
+
+---
+
+### Step Insertion
+
+Adds a workflow operation.
+
+Example
+
+```
+Login
+
+↓
+
+Checkout
+```
+
+↓
+
+```
+Login
+
+↓
+
+Logout
+
+↓
+
+Checkout
+```
+
+---
+
+### Adjacent Swap
+
+Swaps neighboring workflow steps.
+
+---
+
+### Non-Adjacent Swap
+
+Reorders distant workflow operations.
+
+---
+
+### Prerequisite Removal
+
+Removes operations that establish required state.
+
+Example
+
+```
+Wallet Top-up
+
+↓
+
+Checkout
+```
+
+↓
+
+```
+Checkout
+```
+
+These mutations are useful for robustness analysis.
+
+---
+
+# 7. Hypothesis-driven Mutation Engine
+
+## Purpose
+
+Unlike generic mutations, hypothesis mutations target specific business logic assumptions.
+
+Each mutation represents a concrete research hypothesis.
+
+Examples include:
+
+### H001
+
+Checkout succeeds without authentication.
+
+---
+
+### H002
+
+Wallet balance can be duplicated.
+
+---
+
+### H003
+
+Order history is accessible without login.
+
+---
+
+Each hypothesis is executed independently and compared against the baseline workflow.
+
+---
+
+# 8. Execution Engine
+
+## Purpose
+
+The execution engine performs automated workflow execution using Playwright.
+
+Each workflow is executed multiple times to reduce non-deterministic effects.
+
+Execution metadata includes:
+
+- duration
+- success status
+- failures
+- completed steps
+- execution logs
+
+The engine exports structured JSON reports for every workflow execution.
+
+---
+
+# 9. Behavior Comparator
+
+## Purpose
+
+The comparator evaluates behavioral differences between baseline and mutated executions.
+
+Comparison dimensions include:
+
+- workflow success
+- execution time
+- state divergence
+- semantic outcome
+- anomaly detection
+
+The comparator determines whether the observed behavior supports or rejects the evaluated hypothesis.
+
+---
+
+# 10. Scientific Evaluation Pipeline
+
+## Purpose
+
+The evaluation pipeline aggregates all execution results into publication-ready artifacts.
+
+Automatically generated outputs include:
+
+- JSON reports
+- experiment summaries
+- workflow statistics
+- mutation summaries
+- CSV tables
+- LaTeX tables
+- publication figures
+
+No manual processing is required.
+
+---
+
+# End-to-End Pipeline
+
+The complete framework operates according to the following sequence.
+
+```
+Crawler
+      │
+      ▼
+State Graph Builder
+      │
+      ▼
+Semantic Discovery
+      │
+      ▼
+Workflow Generation
+      │
+      ▼
+Workflow Prioritization
+      │
+      ▼
+Generic Mutation Engine
+      │
+      ▼
+Hypothesis Mutation Engine
+      │
+      ▼
+Playwright Execution
+      │
+      ▼
+Behavior Comparator
+      │
+      ▼
+Scientific Evaluation
+      │
+      ▼
+Tables • Figures • Reports
+```
+
+---
+
+# Design Principles
+
+The framework was developed according to the following principles.
+
+- Modular implementation
+- Reproducible experiments
+- Fully automated evaluation
+- Publication-ready outputs
+- Framework extensibility
+- Separation of benchmark and framework
+- Independent module testing
+- Research-oriented architecture
+
+These principles enable HERMES to serve both as a research artifact and as a foundation for future workflow fuzzing studies.
+
+---
