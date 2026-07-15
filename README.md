@@ -620,3 +620,302 @@ This automatically generates:
 The generated outputs are stored under the `evaluation/` directory.
 
 ---
+---
+
+# Quick Start
+
+This section demonstrates how to reproduce the complete HERMES evaluation from a clean repository checkout.
+
+---
+
+## Step 1 — Clone the Repository
+
+```bash
+git clone https://github.com/SDET-Hamad-KMughal/hermes-framework.git
+
+cd hermes-framework
+```
+
+---
+
+## Step 2 — Create a Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+Activate the environment.
+
+### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+### Linux
+
+```bash
+source venv/bin/activate
+```
+
+---
+
+## Step 3 — Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+Install Playwright browsers.
+
+```bash
+playwright install
+```
+
+---
+
+## Step 4 — Verify Installation
+
+Run the complete automated validation suite.
+
+```bash
+pytest -q
+```
+
+A successful installation should complete with all tests passing.
+
+---
+
+# Running the Complete Scientific Evaluation
+
+The entire evaluation pipeline is executed using a single command.
+
+```bash
+python scripts/run_scientific_evaluation.py \
+    --config evaluation/configs/experiment.json
+```
+
+The framework automatically executes:
+
+1. Baseline workflows
+2. Generic workflow mutations
+3. Hypothesis-driven mutations
+4. Behavioral comparison
+5. Result aggregation
+
+---
+
+# Scientific Evaluation Pipeline
+
+The evaluation follows the pipeline below.
+
+```
+Baseline Workflows
+        │
+        ▼
+Generic Mutations
+        │
+        ▼
+Hypothesis Mutations
+        │
+        ▼
+Workflow Execution
+        │
+        ▼
+Behavior Comparison
+        │
+        ▼
+Evaluation Metrics
+        │
+        ▼
+Tables
+        │
+        ▼
+Figures
+```
+
+---
+
+# Execution Output
+
+The evaluation automatically produces several categories of artifacts.
+
+## Raw Execution Reports
+
+```
+evaluation/raw/
+```
+
+Contains one JSON file for every workflow execution.
+
+Each report records:
+
+- workflow identifier
+- mutation strategy
+- execution duration
+- execution status
+- anomaly metadata
+- comparison outcome
+
+---
+
+## Aggregated Reports
+
+```
+evaluation/aggregated/
+```
+
+Contains experiment summaries generated from all execution reports.
+
+Examples include:
+
+- experiment summary
+- workflow statistics
+- mutation statistics
+- anomaly summary
+- ground-truth metrics
+
+---
+
+## CSV Tables
+
+```
+evaluation/tables/csv/
+```
+
+Automatically generated spreadsheet-friendly tables suitable for statistical analysis.
+
+---
+
+## LaTeX Tables
+
+```
+evaluation/tables/latex/
+```
+
+Publication-ready tables that can be directly included in IEEE, ACM, Springer, or Elsevier papers.
+
+---
+
+## Publication Figures
+
+```
+evaluation/figures/
+```
+
+Automatically generated figures suitable for research publications.
+
+Examples include:
+
+- workflow distribution
+- mutation distribution
+- anomaly rate
+- execution summary
+- comparison metrics
+
+---
+
+# HERMES-Bench
+
+The framework is evaluated using **HERMES-Bench**, a purpose-built benchmark designed for stateful workflow fuzzing research.
+
+HERMES-Bench models realistic e-commerce behavior with authenticated user workflows and state-dependent business logic.
+
+Implemented functionality includes:
+
+- User registration
+- User authentication
+- Product catalog
+- Shopping cart
+- Checkout
+- Wallet top-up
+- Order history
+- Administrative monitoring
+
+Unlike synthetic benchmarks, HERMES-Bench preserves workflow dependencies between operations, making it suitable for evaluating state-aware workflow fuzzing techniques.
+
+---
+
+# Benchmark Workflows
+
+The current benchmark contains representative business workflows including:
+
+| Workflow | Description |
+|----------|-------------|
+| Login | Authenticate a registered user |
+| Wallet Top-up | Increase account balance |
+| Checkout | Purchase products |
+| View Orders | Display historical orders |
+| Logout | Terminate authenticated session |
+
+These workflows serve as the baseline for workflow mutation experiments.
+
+---
+
+# Mutation Strategies
+
+HERMES currently supports two complementary mutation categories.
+
+## Generic Mutations
+
+Structural workflow transformations including:
+
+- Step insertion
+- Step deletion
+- Adjacent swap
+- Non-adjacent swap
+- Prerequisite removal
+
+These mutations explore workflow robustness without targeting specific vulnerabilities.
+
+---
+
+## Hypothesis-driven Mutations
+
+Security-oriented mutations derived from explicit hypotheses.
+
+Examples include:
+
+- Checkout without authentication
+- Unauthorized order history access
+- Duplicate wallet top-up
+- Missing prerequisite operations
+- Authentication bypass attempts
+
+Each hypothesis is evaluated independently against the baseline workflow.
+
+---
+
+# Current Evaluation Statistics
+
+The current implementation executes the following experiments.
+
+| Evaluation Group | Executions |
+|------------------|-----------:|
+| Baseline Workflows | 25 |
+| Generic Mutations | 320 |
+| Hypothesis Mutations | 25 |
+| **Total Executions** | **370** |
+
+All executions are fully reproducible using the provided evaluation scripts.
+
+---
+
+# Reproducibility
+
+Every result presented in this repository is generated directly from the implementation.
+
+No tables, figures, or metrics are manually edited.
+
+The framework automatically produces:
+
+- JSON reports
+- aggregated summaries
+- CSV tables
+- LaTeX tables
+- publication figures
+- scientific metrics
+
+Running the evaluation from scratch regenerates all experimental artifacts, ensuring complete reproducibility.
+
+---
