@@ -11,6 +11,8 @@ class CrawlerConfig:
     max_pages: int = 50
     max_depth: int = 5
     page_timeout_seconds: int = 15
+    max_retries: int = 2
+    retry_backoff_seconds: float = 0.5
     headless: bool = True
     allow_external_links: bool = False
 
