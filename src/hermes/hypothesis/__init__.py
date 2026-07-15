@@ -1,3 +1,4 @@
+from hermes.hypothesis.mutator import HypothesisMutator
 from hermes.hypothesis.generator import HypothesisGenerator
 from hermes.hypothesis.templates import (
     DEFAULT_TEMPLATES,
@@ -15,6 +16,7 @@ __all__ = [
     "ExpectedBehavior",
     "HypothesisCategory",
     "HypothesisGenerator",
+    "HypothesisMutator",
     "HypothesisTemplate",
     "DEFAULT_TEMPLATES",
     "WorkflowHypothesis",
