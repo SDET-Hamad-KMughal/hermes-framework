@@ -1,0 +1,46 @@
+{
+  "workflow_id": "authenticated-wallet-workflow",
+  "workflow_name": "Authenticated Wallet Reset Workflow",
+  "success": true,
+  "successful_steps": 3,
+  "failed_steps": 0,
+  "total_duration_seconds": 0.464733199973125,
+  "started_at": "2026-07-15T21:20:21.219830+00:00",
+  "finished_at": "2026-07-15T21:20:21.685399+00:00",
+  "steps": [
+    {
+      "step_index": 0,
+      "operation_type": "login",
+      "label": "Navigate to Login",
+      "success": true,
+      "url_before": "http://127.0.0.1:5000/",
+      "url_after": "http://127.0.0.1:5000/login",
+      "duration_seconds": 0.05465439998079091,
+      "error": null,
+      "metadata": {}
+    },
+    {
+      "step_index": 1,
+      "operation_type": "login",
+      "label": "Authenticate Session",
+      "success": true,
+      "url_before": "http://127.0.0.1:5000/login",
+      "url_after": "http://127.0.0.1:5000/",
+      "duration_seconds": 0.3684500999515876,
+      "error": null,
+      "metadata": {}
+    },
+    {
+      "step_index": 2,
+      "operation_type": "top_up_wallet",
+      "label": "Reset Wallet Balance",
+      "success": true,
+      "url_before": "http://127.0.0.1:5000/",
+      "url_after": "http://127.0.0.1:5000/",
+      "duration_seconds": 0.04162870004074648,
+      "error": null,
+      "metadata": {}
+    }
+  ],
+  "metadata": {}
+}

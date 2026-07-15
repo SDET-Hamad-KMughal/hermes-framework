@@ -1,5 +1,6 @@
 {
   "benchmark": "hermes-bench",
+  "version": "v1",
   "anomalies": [
     {
       "anomaly_id": "GT001",
@@ -42,11 +43,5 @@
         "seed_flag": "HERMES_BUG_ORDERS_WITHOUT_AUTH"
       }
     }
-  ],
-  "notes": [
-    "Known anomalies will be added only after they are deliberately implemented and independently verified.",
-    "Integration divergences are not automatically treated as confirmed bugs.",
-    "Each anomaly must include an identifier, affected workflow, mutation strategy, expected behavior, and reproducible oracle."
-  ],
-  "seeded_anomaly_version": "v1"
+  ]
 }
