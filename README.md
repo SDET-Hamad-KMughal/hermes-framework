@@ -1327,3 +1327,253 @@ The framework was developed according to the following principles.
 These principles enable HERMES to serve both as a research artifact and as a foundation for future workflow fuzzing studies.
 
 ---
+---
+
+# Scientific Evaluation
+
+The HERMES evaluation pipeline is designed to provide a fully reproducible assessment of workflow fuzzing effectiveness.
+
+Every experiment follows the same sequence:
+
+1. Execute baseline workflows.
+2. Generate workflow mutations.
+3. Execute mutated workflows.
+4. Compare behavioral outcomes.
+5. Aggregate execution statistics.
+6. Generate publication artifacts.
+
+No manual intervention is required after the evaluation begins.
+
+---
+
+# Evaluation Workflow
+
+```
+Baseline Workflow
+        │
+        ▼
+Execute Baseline
+        │
+        ▼
+Generate Mutations
+        │
+        ▼
+Execute Mutations
+        │
+        ▼
+Behavior Comparison
+        │
+        ▼
+Anomaly Detection
+        │
+        ▼
+Metric Aggregation
+        │
+        ▼
+Tables and Figures
+```
+
+---
+
+# Baseline Evaluation
+
+Baseline workflows represent the expected behavior of the application.
+
+Each workflow is executed multiple times to establish consistent reference behavior.
+
+Typical baseline workflows include:
+
+- Login
+- Wallet Top-up
+- Checkout
+- View Orders
+- Logout
+
+The baseline execution establishes:
+
+- expected success status
+- expected workflow duration
+- expected state transitions
+- expected business outcome
+
+All mutations are compared against this baseline.
+
+---
+
+# Generic Mutation Evaluation
+
+Generic mutations modify workflow structure without targeting a specific vulnerability.
+
+Examples include:
+
+- Removing workflow steps
+- Swapping workflow steps
+- Inserting additional operations
+- Removing prerequisite actions
+
+These mutations evaluate the robustness of workflow execution under structural changes.
+
+---
+
+# Hypothesis-driven Evaluation
+
+Hypothesis-driven mutations are designed to test explicit security assumptions.
+
+Current hypotheses include:
+
+| ID | Security Hypothesis |
+|----|---------------------|
+| H001 | Checkout should require authentication |
+| H002 | Wallet credit should not be duplicated |
+| H003 | Order history should require authentication |
+
+Each hypothesis is executed independently and compared against the corresponding baseline workflow.
+
+---
+
+# Behavioral Comparison
+
+After execution, baseline and mutated workflows are compared.
+
+Comparison dimensions include:
+
+| Metric | Description |
+|---------|-------------|
+| Success Status | Did both executions complete successfully? |
+| Execution Duration | Was there a significant runtime difference? |
+| Completed Steps | Were workflow steps skipped or added? |
+| State Transition | Did navigation diverge from baseline? |
+| Final Outcome | Did the business result change? |
+
+Behavioral divergence may indicate a business logic anomaly.
+
+---
+
+# Ground Truth Validation
+
+HERMES supports evaluation against a manually verified ground-truth dataset.
+
+Ground truth enables measurement of anomaly detection quality using standard information retrieval metrics.
+
+The framework reports:
+
+- True Positives
+- False Positives
+- True Negatives
+- False Negatives
+
+From these values it computes:
+
+- Precision
+- Recall
+- F1-score
+- Accuracy
+
+This enables objective comparison between workflow mutation strategies.
+
+---
+
+# Generated Evaluation Artifacts
+
+A complete execution produces several categories of artifacts.
+
+## Raw Reports
+
+```
+evaluation/raw/
+```
+
+Contains one JSON report for every workflow execution.
+
+---
+
+## Aggregated Reports
+
+```
+evaluation/aggregated/
+```
+
+Contains merged summaries and statistical outputs.
+
+---
+
+## CSV Tables
+
+```
+evaluation/tables/csv/
+```
+
+Spreadsheet-compatible experimental results.
+
+---
+
+## LaTeX Tables
+
+```
+evaluation/tables/latex/
+```
+
+Publication-ready tables for academic papers.
+
+---
+
+## Publication Figures
+
+```
+evaluation/figures/
+```
+
+Automatically generated visualizations suitable for inclusion in conference and journal publications.
+
+---
+
+# Reproducibility
+
+Every artifact produced by HERMES is automatically regenerated from source code.
+
+Running the evaluation pipeline again reproduces:
+
+- Raw execution reports
+- Statistical summaries
+- CSV tables
+- LaTeX tables
+- Publication figures
+
+No values are manually edited after execution.
+
+This design ensures complete experimental reproducibility.
+
+---
+
+# Experimental Summary
+
+The current evaluation consists of:
+
+| Evaluation Category | Executions |
+|---------------------|-----------:|
+| Baseline Workflows | 25 |
+| Generic Mutations | 320 |
+| Hypothesis Mutations | 25 |
+| **Total Workflow Executions** | **370** |
+
+All executions were generated automatically by the HERMES evaluation framework.
+
+---
+
+# Research Significance
+
+Traditional web fuzzers primarily mutate requests and input values.
+
+HERMES extends this paradigm by mutating **workflow history** while preserving semantic intent.
+
+This enables exploration of business logic vulnerabilities that depend on application state rather than isolated inputs.
+
+The resulting framework provides a foundation for future research in:
+
+- Stateful Web Fuzzing
+- Business Logic Testing
+- Workflow Mutation
+- Semantic Software Testing
+- Autonomous Security Evaluation
+
+---
