@@ -1,6 +1,7 @@
 """Evaluation components for HERMES."""
 
 from hermes.evaluation.pipeline import EvaluationPipeline
+from hermes.evaluation.report import EvaluationReportWriter
 from hermes.evaluation.models import (
     EvaluationResult,
     MutationEvaluation,
@@ -8,6 +9,7 @@ from hermes.evaluation.models import (
 
 __all__ = [
     "EvaluationPipeline",
+    "EvaluationReportWriter",
     "EvaluationResult",
     "MutationEvaluation",
 ]
