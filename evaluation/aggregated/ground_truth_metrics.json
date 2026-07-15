@@ -1,0 +1,14 @@
+{
+  "ground_truth_anomaly_count": 0,
+  "raw_record_count": 74,
+  "metrics": {
+    "true_positives": 0,
+    "false_positives": 23,
+    "false_negatives": 0,
+    "true_negatives": 5,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1_score": 0.0,
+    "accuracy": 0.17857142857142858
+  }
+}
