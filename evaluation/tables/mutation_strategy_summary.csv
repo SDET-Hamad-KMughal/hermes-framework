@@ -1,0 +1,9 @@
+group,mutation_strategy,record_count,successful_executions,execution_success_rate,anomaly_count,anomaly_rate,mean_divergence_score
+generic_mutation,duplicate_step,15,10,0.6666666666666666,6,0.4,0.39555555555555555
+generic_mutation,insert_logout,20,0,0.0,20,1.0,0.6666666666666666
+generic_mutation,reverse_workflow,4,4,1.0,0,0.0,0.2
+generic_mutation,skip_step,15,10,0.6666666666666666,12,0.8,0.5733333333333334
+generic_mutation,swap_adjacent,10,5,0.5,5,0.5,0.5533333333333333
+hypothesis_mutation,duplicate_operation,1,1,1.0,0,0.0,0.2
+hypothesis_mutation,remove_prerequisite,3,1,0.3333333333333333,3,1.0,0.8222222222222222
+hypothesis_mutation,swap_operations,1,0,0.0,1,1.0,1.0

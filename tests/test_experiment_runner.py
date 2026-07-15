@@ -1,6 +1,7 @@
 """Tests for the HERMES scientific experiment runner."""
 
 import json
+from pathlib import Path
 
 import pytest
 
@@ -188,3 +189,471 @@ def test_missing_group_is_rejected(
         ),
     ):
         runner.load_configuration()
+
+
+def test_runner_loads_workflow_objects(
+    tmp_path,
+) -> None:
+    workflow_path = tmp_path / "workflow.json"
+    workflow_path.write_text(
+        json.dumps(
+            {
+                "workflow_id": "login-flow",
+                "name": "Login Flow",
+                "steps": [],
+                "metadata": {},
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    payload = valid_config()
+    payload["workflows"] = [str(workflow_path)]
+
+    runner = ExperimentRunner(
+        write_config(tmp_path, payload)
+    )
+
+    workflows = runner.load_workflows()
+
+    assert len(workflows) == 1
+    assert workflows[0].workflow_id == "login-flow"
+    assert workflows[0].name == "Login Flow"
+
+
+def test_run_baselines_executes_and_persists_results(
+    tmp_path,
+    monkeypatch,
+) -> None:
+    workflow_path = tmp_path / "workflow.json"
+    workflow_path.write_text(
+        json.dumps(
+            {
+                "workflow_id": "login-flow",
+                "name": "Login Flow",
+                "steps": [],
+                "metadata": {},
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    payload = valid_config()
+    payload["workflows"] = [str(workflow_path)]
+    payload["runs_per_workflow"] = 2
+    payload["outputs"] = {
+        "raw_directory": str(tmp_path / "raw"),
+        "aggregated_directory": str(
+            tmp_path / "aggregated"
+        ),
+        "tables_directory": str(tmp_path / "tables"),
+        "figures_directory": str(tmp_path / "figures"),
+    }
+
+    class FakeExecution:
+        success = True
+        successful_steps = 2
+        failed_steps = 0
+        total_duration_seconds = 0.25
+
+        def to_dict(self) -> dict:
+            return {
+                "workflow_id": "login-flow",
+                "workflow_name": "Login Flow",
+                "success": True,
+                "successful_steps": 2,
+                "failed_steps": 0,
+                "total_duration_seconds": 0.25,
+                "steps": [],
+            }
+
+    monkeypatch.setattr(
+        "hermes.evaluation.experiment_runner.execute_workflow",
+        lambda **kwargs: FakeExecution(),
+    )
+
+    runner = ExperimentRunner(
+        write_config(tmp_path, payload)
+    )
+
+    records = runner.run_baselines()
+
+    assert len(records) == 2
+    assert all(record["success"] is True for record in records)
+    assert all(record["group"] == "baseline" for record in records)
+    assert records[0]["run_index"] == 1
+    assert records[1]["run_index"] == 2
+    assert all(
+        Path(record["output"]).exists()
+        for record in records
+    )
+
+
+def test_generic_mutations_can_be_disabled(
+    tmp_path,
+) -> None:
+    payload = valid_config()
+    payload["groups"]["generic_mutation"] = False
+
+    runner = ExperimentRunner(
+        write_config(tmp_path, payload)
+    )
+
+    assert runner.run_generic_mutations() == []
+
+
+def test_run_generic_mutations_persists_records(
+    tmp_path,
+    monkeypatch,
+) -> None:
+    workflow_path = tmp_path / "workflow.json"
+    workflow_path.write_text(
+        json.dumps(
+            {
+                "workflow_id": "checkout-flow",
+                "name": "Checkout Flow",
+                "steps": [],
+                "metadata": {},
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    payload = valid_config()
+    payload["workflows"] = [str(workflow_path)]
+    payload["runs_per_workflow"] = 1
+    payload["outputs"] = {
+        "raw_directory": str(tmp_path / "raw"),
+        "aggregated_directory": str(
+            tmp_path / "aggregated"
+        ),
+        "tables_directory": str(tmp_path / "tables"),
+        "figures_directory": str(tmp_path / "figures"),
+    }
+
+    class FakeExecution:
+        success = True
+        successful_steps = 1
+        failed_steps = 0
+        total_duration_seconds = 0.10
+        workflow_id = "workflow"
+
+        def to_dict(self) -> dict:
+            return {
+                "workflow_id": self.workflow_id,
+                "success": self.success,
+                "successful_steps": self.successful_steps,
+                "failed_steps": self.failed_steps,
+                "total_duration_seconds": (
+                    self.total_duration_seconds
+                ),
+                "steps": [],
+            }
+
+    class FakeMutation:
+        workflow_id = "checkout-flow--skip-step--0"
+        metadata = {
+            "mutation_type": "skip_step",
+        }
+
+    class FakeMutationEngine:
+        def __init__(self, plan) -> None:
+            self.plan = plan
+
+        def generate(self, workflow):
+            return [FakeMutation()]
+
+    class FakeComparisonStatus:
+        value = "divergent"
+
+    class FakeComparison:
+        status = FakeComparisonStatus()
+        divergence_score = 0.75
+
+        def to_dict(self) -> dict:
+            return {
+                "status": "divergent",
+                "divergence_score": 0.75,
+                "signals": [],
+            }
+
+    class FakeComparator:
+        def compare(self, baseline, mutated):
+            return FakeComparison()
+
+    monkeypatch.setattr(
+        "hermes.evaluation.experiment_runner."
+        "WorkflowMutationEngine",
+        FakeMutationEngine,
+    )
+    monkeypatch.setattr(
+        "hermes.evaluation.experiment_runner."
+        "BehaviorComparator",
+        FakeComparator,
+    )
+    monkeypatch.setattr(
+        "hermes.evaluation.experiment_runner."
+        "execute_workflow",
+        lambda **kwargs: FakeExecution(),
+    )
+
+    runner = ExperimentRunner(
+        write_config(tmp_path, payload)
+    )
+
+    records = runner.run_generic_mutations()
+
+    assert len(records) == 1
+    assert records[0]["group"] == "generic_mutation"
+    assert records[0]["mutation_strategy"] == "skip_step"
+    assert records[0]["comparison_status"] == "divergent"
+    assert records[0]["anomaly_detected"] is True
+    assert Path(records[0]["output"]).exists()
+
+
+def test_hypothesis_mutations_can_be_disabled(
+    tmp_path,
+) -> None:
+    payload = valid_config()
+    payload["groups"]["hypothesis_mutation"] = False
+
+    runner = ExperimentRunner(
+        write_config(tmp_path, payload)
+    )
+
+    assert runner.run_hypothesis_mutations() == []
+
+
+def test_run_hypothesis_mutations_persists_records(
+    tmp_path,
+    monkeypatch,
+) -> None:
+    workflow_path = tmp_path / "workflow.json"
+    workflow_path.write_text(
+        json.dumps(
+            {
+                "workflow_id": "checkout-flow",
+                "name": "Checkout Flow",
+                "steps": [],
+                "metadata": {},
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    payload = valid_config()
+    payload["workflows"] = [str(workflow_path)]
+    payload["runs_per_workflow"] = 1
+    payload["outputs"] = {
+        "raw_directory": str(tmp_path / "raw"),
+        "aggregated_directory": str(
+            tmp_path / "aggregated"
+        ),
+        "tables_directory": str(tmp_path / "tables"),
+        "figures_directory": str(tmp_path / "figures"),
+    }
+
+    class FakeExecution:
+        success = False
+        successful_steps = 0
+        failed_steps = 1
+        total_duration_seconds = 0.15
+        workflow_id = "workflow"
+
+        def to_dict(self) -> dict:
+            return {
+                "workflow_id": self.workflow_id,
+                "success": self.success,
+                "successful_steps": self.successful_steps,
+                "failed_steps": self.failed_steps,
+                "total_duration_seconds": (
+                    self.total_duration_seconds
+                ),
+                "steps": [],
+            }
+
+    class FakeCategory:
+        value = "authentication"
+
+    class FakeExpectedBehavior:
+        value = "reject"
+
+    class FakeHypothesis:
+        hypothesis_id = "H001"
+        title = "Checkout requires login"
+        category = FakeCategory()
+        mutation_strategy = "remove_prerequisite"
+        expected_behavior = FakeExpectedBehavior()
+        target_operation = "checkout"
+        prerequisite_operation = "login"
+        confidence = 0.95
+
+        def to_dict(self) -> dict:
+            return {
+                "hypothesis_id": "H001",
+                "title": self.title,
+                "category": "authentication",
+                "mutation_strategy": (
+                    "remove_prerequisite"
+                ),
+                "expected_behavior": "reject",
+            }
+
+    class FakeMutation:
+        workflow_id = "checkout-flow--h001"
+
+    class FakeHypothesisGenerator:
+        def generate(self, workflow):
+            return [FakeHypothesis()]
+
+    class FakeHypothesisMutator:
+        def mutate(self, workflow, hypothesis):
+            return FakeMutation()
+
+    class FakeComparisonStatus:
+        value = "divergent"
+
+    class FakeComparison:
+        status = FakeComparisonStatus()
+        divergence_score = 0.80
+
+        def to_dict(self) -> dict:
+            return {
+                "status": "divergent",
+                "divergence_score": 0.80,
+                "signals": [],
+            }
+
+    class FakeComparator:
+        def compare(self, baseline, mutated):
+            return FakeComparison()
+
+    monkeypatch.setattr(
+        "hermes.evaluation.experiment_runner."
+        "HypothesisGenerator",
+        FakeHypothesisGenerator,
+    )
+    monkeypatch.setattr(
+        "hermes.evaluation.experiment_runner."
+        "HypothesisMutator",
+        FakeHypothesisMutator,
+    )
+    monkeypatch.setattr(
+        "hermes.evaluation.experiment_runner."
+        "BehaviorComparator",
+        FakeComparator,
+    )
+    monkeypatch.setattr(
+        "hermes.evaluation.experiment_runner."
+        "execute_workflow",
+        lambda **kwargs: FakeExecution(),
+    )
+
+    runner = ExperimentRunner(
+        write_config(tmp_path, payload)
+    )
+
+    records = runner.run_hypothesis_mutations()
+
+    assert len(records) == 1
+    assert records[0]["group"] == "hypothesis_mutation"
+    assert records[0]["hypothesis_id"] == "H001"
+    assert (
+        records[0]["mutation_strategy"]
+        == "remove_prerequisite"
+    )
+    assert (
+        records[0]["hypothesis_category"]
+        == "authentication"
+    )
+    assert records[0]["comparison_status"] == "divergent"
+    assert records[0]["anomaly_detected"] is True
+    assert Path(records[0]["output"]).exists()
+
+
+def test_run_executes_enabled_groups(
+    tmp_path,
+    monkeypatch,
+) -> None:
+    payload = valid_config()
+    payload["outputs"] = {
+        "raw_directory": str(tmp_path / "raw"),
+        "aggregated_directory": str(
+            tmp_path / "aggregated"
+        ),
+        "tables_directory": str(tmp_path / "tables"),
+        "figures_directory": str(tmp_path / "figures"),
+    }
+
+    runner = ExperimentRunner(
+        write_config(tmp_path, payload)
+    )
+
+    monkeypatch.setattr(
+        runner,
+        "run_baselines",
+        lambda: [{"group": "baseline"}],
+    )
+    monkeypatch.setattr(
+        runner,
+        "run_generic_mutations",
+        lambda: [{"group": "generic_mutation"}],
+    )
+    monkeypatch.setattr(
+        runner,
+        "run_hypothesis_mutations",
+        lambda: [{"group": "hypothesis_mutation"}],
+    )
+
+    summary = runner.run()
+
+    assert summary["baseline_record_count"] == 1
+    assert summary["generic_mutation_record_count"] == 1
+    assert summary["hypothesis_mutation_record_count"] == 1
+    assert summary["total_record_count"] == 3
+    assert Path(summary["summary_path"]).exists()
+
+
+def test_run_skips_disabled_baseline_group(
+    tmp_path,
+    monkeypatch,
+) -> None:
+    payload = valid_config()
+    payload["groups"]["baseline"] = False
+    payload["outputs"] = {
+        "raw_directory": str(tmp_path / "raw"),
+        "aggregated_directory": str(
+            tmp_path / "aggregated"
+        ),
+        "tables_directory": str(tmp_path / "tables"),
+        "figures_directory": str(tmp_path / "figures"),
+    }
+
+    runner = ExperimentRunner(
+        write_config(tmp_path, payload)
+    )
+
+    monkeypatch.setattr(
+        runner,
+        "run_baselines",
+        lambda: (_ for _ in ()).throw(
+            AssertionError(
+                "baseline group should not run"
+            )
+        ),
+    )
+    monkeypatch.setattr(
+        runner,
+        "run_generic_mutations",
+        lambda: [],
+    )
+    monkeypatch.setattr(
+        runner,
+        "run_hypothesis_mutations",
+        lambda: [],
+    )
+
+    summary = runner.run()
+
+    assert summary["baseline_record_count"] == 0
+    assert summary["total_record_count"] == 0

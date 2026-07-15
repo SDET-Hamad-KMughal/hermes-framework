@@ -1,0 +1,82 @@
+{
+  "total_record_count": 74,
+  "group_count": 3,
+  "mutation_record_count": 69,
+  "total_anomalies": 47,
+  "overall_mutation_anomaly_rate": 0.6811594202898551,
+  "workflow_record_counts": {
+    "authenticated-cart-workflow": 14,
+    "authenticated-checkout-workflow": 21,
+    "authenticated-order-history-workflow": 15,
+    "authenticated-wallet-workflow": 15,
+    "login-workflow": 9
+  },
+  "groups": {
+    "baseline": {
+      "group": "baseline",
+      "record_count": 5,
+      "successful_executions": 5,
+      "failed_executions": 0,
+      "execution_success_rate": 1.0,
+      "duration": {
+        "total_seconds": 1.7078553999308497,
+        "mean_seconds": 0.3415710799861699,
+        "median_seconds": 0.31511719996342435,
+        "minimum_seconds": 0.2886140000773594,
+        "maximum_seconds": 0.44520059996284544
+      }
+    },
+    "generic_mutation": {
+      "group": "generic_mutation",
+      "record_count": 64,
+      "successful_executions": 29,
+      "failed_executions": 35,
+      "execution_success_rate": 0.453125,
+      "anomaly_count": 43,
+      "anomaly_rate": 0.671875,
+      "equivalent_count": 21,
+      "divergent_count": 43,
+      "mean_divergence_score": 0.5343749999999999,
+      "median_divergence_score": 0.6666666666666666,
+      "mutation_strategies": {
+        "duplicate_step": 15,
+        "insert_logout": 20,
+        "reverse_workflow": 4,
+        "skip_step": 15,
+        "swap_adjacent": 10
+      },
+      "duration": {
+        "total_seconds": 242.70794790011132,
+        "mean_seconds": 3.7923116859392394,
+        "median_seconds": 0.3532934999966528,
+        "minimum_seconds": 0.031741200014948845,
+        "maximum_seconds": 15.399949000042398
+      }
+    },
+    "hypothesis_mutation": {
+      "group": "hypothesis_mutation",
+      "record_count": 5,
+      "successful_executions": 2,
+      "failed_executions": 3,
+      "execution_success_rate": 0.4,
+      "anomaly_count": 4,
+      "anomaly_rate": 0.8,
+      "equivalent_count": 1,
+      "divergent_count": 4,
+      "mean_divergence_score": 0.7333333333333334,
+      "median_divergence_score": 1.0,
+      "mutation_strategies": {
+        "duplicate_operation": 1,
+        "remove_prerequisite": 3,
+        "swap_operations": 1
+      },
+      "duration": {
+        "total_seconds": 46.16239529993618,
+        "mean_seconds": 9.232479059987236,
+        "median_seconds": 15.030223799985833,
+        "minimum_seconds": 0.3070485999924131,
+        "maximum_seconds": 15.343598500010557
+      }
+    }
+  }
+}

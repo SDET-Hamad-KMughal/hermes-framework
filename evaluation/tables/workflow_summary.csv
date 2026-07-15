@@ -1,0 +1,6 @@
+workflow_id,record_count,mutation_record_count,anomaly_count,anomaly_rate,mean_duration_seconds
+authenticated-cart-workflow,14,13,10,0.7692307692307693,3.505852314277685
+authenticated-checkout-workflow,21,20,12,0.6,3.932217519040153
+authenticated-order-history-workflow,15,14,10,0.7142857142857143,4.227197100024204
+authenticated-wallet-workflow,15,14,8,0.5714285714285714,3.251258733321447
+login-workflow,9,8,7,0.875,5.1936512000069746

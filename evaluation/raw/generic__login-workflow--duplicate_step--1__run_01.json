@@ -1,0 +1,119 @@
+{
+  "group": "generic_mutation",
+  "source_workflow_id": "login-workflow",
+  "mutation_workflow_id": "login-workflow--duplicate_step--1",
+  "mutation_strategy": "duplicate_step",
+  "run_index": 1,
+  "started_at": "2026-07-15T20:02:22.340223+00:00",
+  "execution_success": false,
+  "successful_steps": 2,
+  "failed_steps": 1,
+  "total_duration_seconds": 15.28961179999169,
+  "comparison_status": "divergent",
+  "divergence_score": 0.7333333333333333,
+  "anomaly_detected": true,
+  "execution": {
+    "workflow_id": "login-workflow--duplicate_step--1",
+    "workflow_name": "Authenticated Login Workflow [duplicate_step]",
+    "success": false,
+    "successful_steps": 2,
+    "failed_steps": 1,
+    "total_duration_seconds": 15.28961179999169,
+    "started_at": "2026-07-15T20:02:22.862714+00:00",
+    "finished_at": "2026-07-15T20:02:38.154335+00:00",
+    "steps": [
+      {
+        "step_index": 0,
+        "operation_type": "login",
+        "label": "Navigate to Login",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/login",
+        "duration_seconds": 0.04004639998311177,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 1,
+        "operation_type": "login",
+        "label": "Authenticate Session",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/login",
+        "url_after": "http://127.0.0.1:5000/",
+        "duration_seconds": 0.23830710002221167,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 2,
+        "operation_type": "login",
+        "label": "Authenticate Session",
+        "success": false,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/",
+        "duration_seconds": 15.011258299986366,
+        "error": "Locator.fill: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"input[name=\\\"email\\\"]\").first\n",
+        "metadata": {}
+      }
+    ],
+    "metadata": {}
+  },
+  "comparison": {
+    "baseline_workflow_id": "login-workflow",
+    "mutated_workflow_id": "login-workflow--duplicate_step--1",
+    "status": "divergent",
+    "divergence_score": 0.7333333333333333,
+    "divergent_signals": 4,
+    "equivalent_signals": 1,
+    "signals": [
+      {
+        "signal_name": "workflow_success",
+        "baseline_value": true,
+        "mutated_value": false,
+        "equivalent": false,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "failed_steps",
+        "baseline_value": 0,
+        "mutated_value": 1,
+        "equivalent": false,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "final_url",
+        "baseline_value": "http://127.0.0.1:5000/",
+        "mutated_value": "http://127.0.0.1:5000/",
+        "equivalent": true,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "step_outcomes",
+        "baseline_value": [
+          true,
+          true
+        ],
+        "mutated_value": [
+          true,
+          true,
+          false
+        ],
+        "equivalent": false,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "execution_duration",
+        "baseline_value": 0.2605436000158079,
+        "mutated_value": 15.28961179999169,
+        "equivalent": false,
+        "weight": 0.5,
+        "details": "difference_seconds=15.029068"
+      }
+    ],
+    "metadata": {}
+  }
+}

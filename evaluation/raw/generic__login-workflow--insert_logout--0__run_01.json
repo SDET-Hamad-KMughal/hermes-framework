@@ -1,0 +1,119 @@
+{
+  "group": "generic_mutation",
+  "source_workflow_id": "login-workflow",
+  "mutation_workflow_id": "login-workflow--insert_logout--0",
+  "mutation_strategy": "insert_logout",
+  "run_index": 1,
+  "started_at": "2026-07-15T20:02:53.862445+00:00",
+  "execution_success": false,
+  "successful_steps": 2,
+  "failed_steps": 1,
+  "total_duration_seconds": 0.25121900002704933,
+  "comparison_status": "divergent",
+  "divergence_score": 0.6666666666666666,
+  "anomaly_detected": true,
+  "execution": {
+    "workflow_id": "login-workflow--insert_logout--0",
+    "workflow_name": "Authenticated Login Workflow [insert_logout]",
+    "success": false,
+    "successful_steps": 2,
+    "failed_steps": 1,
+    "total_duration_seconds": 0.25121900002704933,
+    "started_at": "2026-07-15T20:02:54.439372+00:00",
+    "finished_at": "2026-07-15T20:02:54.690814+00:00",
+    "steps": [
+      {
+        "step_index": 0,
+        "operation_type": "logout",
+        "label": "Injected Logout",
+        "success": false,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/",
+        "duration_seconds": 1.5900004655122757e-05,
+        "error": "step requires either selector or target_state_id",
+        "metadata": {}
+      },
+      {
+        "step_index": 1,
+        "operation_type": "login",
+        "label": "Navigate to Login",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/login",
+        "duration_seconds": 0.023316300008445978,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 2,
+        "operation_type": "login",
+        "label": "Authenticate Session",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/login",
+        "url_after": "http://127.0.0.1:5000/",
+        "duration_seconds": 0.22788680001394823,
+        "error": null,
+        "metadata": {}
+      }
+    ],
+    "metadata": {}
+  },
+  "comparison": {
+    "baseline_workflow_id": "login-workflow",
+    "mutated_workflow_id": "login-workflow--insert_logout--0",
+    "status": "divergent",
+    "divergence_score": 0.6666666666666666,
+    "divergent_signals": 3,
+    "equivalent_signals": 2,
+    "signals": [
+      {
+        "signal_name": "workflow_success",
+        "baseline_value": true,
+        "mutated_value": false,
+        "equivalent": false,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "failed_steps",
+        "baseline_value": 0,
+        "mutated_value": 1,
+        "equivalent": false,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "final_url",
+        "baseline_value": "http://127.0.0.1:5000/",
+        "mutated_value": "http://127.0.0.1:5000/",
+        "equivalent": true,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "step_outcomes",
+        "baseline_value": [
+          true,
+          true
+        ],
+        "mutated_value": [
+          false,
+          true,
+          true
+        ],
+        "equivalent": false,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "execution_duration",
+        "baseline_value": 0.2605436000158079,
+        "mutated_value": 0.25121900002704933,
+        "equivalent": true,
+        "weight": 0.5,
+        "details": "difference_seconds=0.009325"
+      }
+    ],
+    "metadata": {}
+  }
+}

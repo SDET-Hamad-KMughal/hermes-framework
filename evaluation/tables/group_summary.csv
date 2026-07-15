@@ -1,0 +1,4 @@
+group,record_count,successful_executions,failed_executions,execution_success_rate,anomaly_count,anomaly_rate,mean_divergence_score,mean_duration_seconds
+baseline,5,5,0,1.0,0,0.0,0.0,0.3415710799861699
+generic_mutation,64,29,35,0.453125,43,0.671875,0.5343749999999999,3.7923116859392394
+hypothesis_mutation,5,2,3,0.4,4,0.8,0.7333333333333334,9.232479059987236
