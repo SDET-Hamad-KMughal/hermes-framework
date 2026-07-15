@@ -1,0 +1,44 @@
+{
+  "workflow_id": "authenticated-cart-workflow",
+  "name": "Authenticated Add-to-Cart Workflow",
+  "steps": [
+    {
+      "operation_type": "login",
+      "label": "Navigate to Login",
+      "source_state_id": "home",
+      "target_state_id": "http://127.0.0.1:5000/login",
+      "selector": null,
+      "metadata": {}
+    },
+    {
+      "operation_type": "login",
+      "label": "Authenticate Session",
+      "source_state_id": "login",
+      "target_state_id": null,
+      "selector": "button[type=\"submit\"]",
+      "metadata": {
+        "credentials": {
+          "username": "buyer@hermesbench.org",
+          "password": "password123"
+        },
+        "username_selector": "input[name=\"email\"]",
+        "password_selector": "input[name=\"password\"]",
+        "submit_selector": "button[type=\"submit\"]"
+      }
+    },
+    {
+      "operation_type": "add_to_cart",
+      "label": "Add First Product to Cart",
+      "source_state_id": "storefront",
+      "target_state_id": null,
+      "selector": "button[type=\"submit\"]",
+      "metadata": {
+        "product_selection": "first"
+      }
+    }
+  ],
+  "metadata": {
+    "benchmark": "hermes-bench",
+    "category": "shopping-cart"
+  }
+}
