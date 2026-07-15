@@ -77,10 +77,18 @@ def execute_evaluation(
 
         context = PlaywrightExecutionContext(page)
 
+        def reset_context() -> None:
+            page.context.clear_cookies()
+            page.goto(
+                start_url,
+                wait_until="domcontentloaded",
+            )
+
         pipeline = EvaluationPipeline(
             runner=WorkflowExecutionRunner(),
             comparator=BehaviorComparator(),
-            mutation_plan=MutationPlan(max_mutations=3),
+            mutation_plan=MutationPlan(),
+            reset_context=reset_context,
         )
 
         return pipeline.evaluate(

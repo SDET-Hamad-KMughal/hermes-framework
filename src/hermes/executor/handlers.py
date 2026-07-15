@@ -35,6 +35,10 @@ class ExecutionHandler:
     ) -> None:
         """Execute a semantic step using browser primitives."""
 
+        if step.operation_type is OperationType.LOGIN and step.metadata.get("credentials"):
+            self._login(context, step)
+            return
+
         if step.operation_type in {
             OperationType.LOGIN,
             OperationType.LOGOUT,
@@ -75,6 +79,50 @@ class ExecutionHandler:
         raise ValueError(
             "step requires either selector or target_state_id"
         )
+
+    @staticmethod
+    def _login(
+        context: BrowserExecutionContext,
+        step: WorkflowStep,
+    ) -> None:
+        credentials = dict(
+            step.metadata.get("credentials", {})
+        )
+
+        username_selector = str(
+            step.metadata.get(
+                "username_selector",
+                'input[name="username"]',
+            )
+        )
+        password_selector = str(
+            step.metadata.get(
+                "password_selector",
+                'input[name="password"]',
+            )
+        )
+        submit_selector = str(
+            step.metadata.get(
+                "submit_selector",
+                step.selector or 'button[type="submit"]',
+            )
+        )
+
+        username = str(
+            credentials.get("username", "")
+        )
+        password = str(
+            credentials.get("password", "")
+        )
+
+        if not username or not password:
+            raise ValueError(
+                "login step requires username and password"
+            )
+
+        context.fill(username_selector, username)
+        context.fill(password_selector, password)
+        context.click(submit_selector)
 
     @staticmethod
     def _search(

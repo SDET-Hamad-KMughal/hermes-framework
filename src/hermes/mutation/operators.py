@@ -163,6 +163,7 @@ class WorkflowMutationOperators:
             workflow_id=(
                 f"{workflow.workflow_id}--"
                 f"{mutation_type.value}"
+                f"--{metadata.get('index', 'all')}"
             ),
             name=f"{workflow.name} [{mutation_type.value}]",
             steps=steps,

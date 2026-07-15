@@ -23,6 +23,7 @@ class EvaluationPipeline:
         runner: WorkflowExecutionRunner,
         comparator: BehaviorComparator,
         mutation_plan: MutationPlan | None = None,
+        reset_context=None,
     ) -> None:
 
         self.runner = runner
@@ -30,12 +31,16 @@ class EvaluationPipeline:
         self.mutation_engine = WorkflowMutationEngine(
             mutation_plan
         )
+        self.reset_context = reset_context
 
     def evaluate(
         self,
         context,
         workflow: Workflow,
     ) -> EvaluationResult:
+
+        if self.reset_context:
+            self.reset_context()
 
         baseline_execution = self.runner.execute(
             context,
@@ -47,6 +52,9 @@ class EvaluationPipeline:
         for mutation in self.mutation_engine.generate(
             workflow
         ):
+
+            if self.reset_context:
+                self.reset_context()
 
             execution = self.runner.execute(
                 context,

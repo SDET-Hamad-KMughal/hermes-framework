@@ -130,3 +130,67 @@ def test_unknown_operation_is_rejected() -> None:
         match="unsupported operation type: unknown",
     ):
         ExecutionHandler().execute(context, step)
+
+
+def test_login_operation_fills_credentials_and_submits() -> None:
+    context = MagicMock()
+
+    step = WorkflowStep(
+        operation_type=OperationType.LOGIN,
+        label="Authenticate Session",
+        source_state_id="login",
+        selector='button[type="submit"]',
+        metadata={
+            "credentials": {
+                "username": "alice",
+                "password": "secret",
+            },
+            "username_selector": 'input[name="username"]',
+            "password_selector": 'input[name="password"]',
+        },
+    )
+
+    ExecutionHandler().execute(context, step)
+
+    context.fill.assert_any_call(
+        'input[name="username"]',
+        "alice",
+    )
+    context.fill.assert_any_call(
+        'input[name="password"]',
+        "secret",
+    )
+
+
+
+def test_login_operation_fills_credentials_and_submits() -> None:
+    context = MagicMock()
+
+    step = WorkflowStep(
+        operation_type=OperationType.LOGIN,
+        label="Authenticate Session",
+        source_state_id="login",
+        selector='button[type="submit"]',
+        metadata={
+            "credentials": {
+                "username": "alice",
+                "password": "secret",
+            },
+            "username_selector": 'input[name="username"]',
+            "password_selector": 'input[name="password"]',
+        },
+    )
+
+    ExecutionHandler().execute(context, step)
+
+    context.fill.assert_any_call(
+        'input[name="username"]',
+        "alice",
+    )
+    context.fill.assert_any_call(
+        'input[name="password"]',
+        "secret",
+    )
+    context.click.assert_called_once_with(
+        'button[type="submit"]'
+    )
