@@ -4,11 +4,11 @@
   "mutation_workflow_id": "login-workflow--skip_step--0",
   "mutation_strategy": "skip_step",
   "run_index": 1,
-  "started_at": "2026-07-15T20:02:05.204742+00:00",
+  "started_at": "2026-07-15T21:36:33.764206+00:00",
   "execution_success": false,
   "successful_steps": 0,
   "failed_steps": 1,
-  "total_duration_seconds": 15.005318799987435,
+  "total_duration_seconds": 15.021357599995099,
   "comparison_status": "divergent",
   "divergence_score": 0.7333333333333333,
   "anomaly_detected": true,
@@ -18,9 +18,9 @@
     "success": false,
     "successful_steps": 0,
     "failed_steps": 1,
-    "total_duration_seconds": 15.005318799987435,
-    "started_at": "2026-07-15T20:02:05.737675+00:00",
-    "finished_at": "2026-07-15T20:02:20.740525+00:00",
+    "total_duration_seconds": 15.021357599995099,
+    "started_at": "2026-07-15T21:36:34.336446+00:00",
+    "finished_at": "2026-07-15T21:36:49.359748+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -29,7 +29,7 @@
         "success": false,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 15.005318799987435,
+        "duration_seconds": 15.021357599995099,
         "error": "Locator.fill: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"input[name=\\\"email\\\"]\").first\n",
         "metadata": {}
       }
@@ -83,11 +83,11 @@
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.2605436000158079,
-        "mutated_value": 15.005318799987435,
+        "baseline_value": 0.30307929997798055,
+        "mutated_value": 15.021357599995099,
         "equivalent": false,
         "weight": 0.5,
-        "details": "difference_seconds=14.744775"
+        "details": "difference_seconds=14.718278"
       }
     ],
     "metadata": {}

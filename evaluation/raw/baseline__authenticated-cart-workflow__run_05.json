@@ -1,0 +1,57 @@
+{
+  "group": "baseline",
+  "workflow_id": "authenticated-cart-workflow",
+  "workflow_name": "Authenticated Add-to-Cart Workflow",
+  "run_index": 5,
+  "started_at": "2026-07-15T21:34:55.881127+00:00",
+  "success": true,
+  "successful_steps": 3,
+  "failed_steps": 0,
+  "total_duration_seconds": 0.4035384000162594,
+  "execution": {
+    "workflow_id": "authenticated-cart-workflow",
+    "workflow_name": "Authenticated Add-to-Cart Workflow",
+    "success": true,
+    "successful_steps": 3,
+    "failed_steps": 0,
+    "total_duration_seconds": 0.4035384000162594,
+    "started_at": "2026-07-15T21:34:56.463507+00:00",
+    "finished_at": "2026-07-15T21:34:56.866540+00:00",
+    "steps": [
+      {
+        "step_index": 0,
+        "operation_type": "login",
+        "label": "Navigate to Login",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/login",
+        "duration_seconds": 0.04259950004052371,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 1,
+        "operation_type": "login",
+        "label": "Authenticate Session",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/login",
+        "url_after": "http://127.0.0.1:5000/",
+        "duration_seconds": 0.29387759999372065,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 2,
+        "operation_type": "add_to_cart",
+        "label": "Add First Product to Cart",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/cart",
+        "duration_seconds": 0.06706129998201504,
+        "error": null,
+        "metadata": {}
+      }
+    ],
+    "metadata": {}
+  }
+}

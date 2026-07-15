@@ -4,11 +4,11 @@
   "mutation_workflow_id": "authenticated-order-history-workflow--insert_logout--3",
   "mutation_strategy": "insert_logout",
   "run_index": 1,
-  "started_at": "2026-07-15T20:06:51.284143+00:00",
+  "started_at": "2026-07-15T22:18:01.495842+00:00",
   "execution_success": false,
   "successful_steps": 3,
   "failed_steps": 1,
-  "total_duration_seconds": 0.29273020004620776,
+  "total_duration_seconds": 0.38219269999535754,
   "comparison_status": "divergent",
   "divergence_score": 0.6666666666666666,
   "anomaly_detected": true,
@@ -18,9 +18,9 @@
     "success": false,
     "successful_steps": 3,
     "failed_steps": 1,
-    "total_duration_seconds": 0.29273020004620776,
-    "started_at": "2026-07-15T20:06:51.839919+00:00",
-    "finished_at": "2026-07-15T20:06:52.132430+00:00",
+    "total_duration_seconds": 0.38219269999535754,
+    "started_at": "2026-07-15T22:18:02.348454+00:00",
+    "finished_at": "2026-07-15T22:18:02.729916+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -29,7 +29,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login",
-        "duration_seconds": 0.037651500024367124,
+        "duration_seconds": 0.016445000015664846,
         "error": null,
         "metadata": {}
       },
@@ -40,7 +40,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/login",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.24106950004352257,
+        "duration_seconds": 0.338037199981045,
         "error": null,
         "metadata": {}
       },
@@ -51,7 +51,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/orders",
-        "duration_seconds": 0.01399080001283437,
+        "duration_seconds": 0.027696600009221584,
         "error": null,
         "metadata": {}
       },
@@ -62,7 +62,7 @@
         "success": false,
         "url_before": "http://127.0.0.1:5000/orders",
         "url_after": "http://127.0.0.1:5000/orders",
-        "duration_seconds": 1.839996548369527e-05,
+        "duration_seconds": 1.3899989426136017e-05,
         "error": "step requires either selector or target_state_id",
         "metadata": {}
       }
@@ -120,11 +120,11 @@
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.29778270004317164,
-        "mutated_value": 0.29273020004620776,
+        "baseline_value": 0.4004487000638619,
+        "mutated_value": 0.38219269999535754,
         "equivalent": true,
         "weight": 0.5,
-        "details": "difference_seconds=0.005052"
+        "details": "difference_seconds=0.018256"
       }
     ],
     "metadata": {}

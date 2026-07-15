@@ -1,0 +1,120 @@
+{
+  "group": "generic_mutation",
+  "source_workflow_id": "authenticated-cart-workflow",
+  "mutation_workflow_id": "authenticated-cart-workflow--swap_adjacent--1",
+  "mutation_strategy": "swap_adjacent",
+  "run_index": 4,
+  "started_at": "2026-07-15T21:46:28.062614+00:00",
+  "execution_success": true,
+  "successful_steps": 3,
+  "failed_steps": 0,
+  "total_duration_seconds": 0.5333873999770731,
+  "comparison_status": "equivalent",
+  "divergence_score": 0.26666666666666666,
+  "anomaly_detected": false,
+  "execution": {
+    "workflow_id": "authenticated-cart-workflow--swap_adjacent--1",
+    "workflow_name": "Authenticated Add-to-Cart Workflow [swap_adjacent]",
+    "success": true,
+    "successful_steps": 3,
+    "failed_steps": 0,
+    "total_duration_seconds": 0.5333873999770731,
+    "started_at": "2026-07-15T21:46:28.995821+00:00",
+    "finished_at": "2026-07-15T21:46:29.528039+00:00",
+    "steps": [
+      {
+        "step_index": 0,
+        "operation_type": "login",
+        "label": "Navigate to Login",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/login",
+        "duration_seconds": 0.06762230000458658,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 1,
+        "operation_type": "add_to_cart",
+        "label": "Add First Product to Cart",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/login",
+        "url_after": "http://127.0.0.1:5000/login",
+        "duration_seconds": 0.104181399976369,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 2,
+        "operation_type": "login",
+        "label": "Authenticate Session",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/login",
+        "url_after": "http://127.0.0.1:5000/",
+        "duration_seconds": 0.3615836999961175,
+        "error": null,
+        "metadata": {}
+      }
+    ],
+    "metadata": {}
+  },
+  "comparison": {
+    "baseline_workflow_id": "authenticated-cart-workflow",
+    "mutated_workflow_id": "authenticated-cart-workflow--swap_adjacent--1",
+    "status": "equivalent",
+    "divergence_score": 0.26666666666666666,
+    "divergent_signals": 1,
+    "equivalent_signals": 4,
+    "signals": [
+      {
+        "signal_name": "workflow_success",
+        "baseline_value": true,
+        "mutated_value": true,
+        "equivalent": true,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "failed_steps",
+        "baseline_value": 0,
+        "mutated_value": 0,
+        "equivalent": true,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "final_url",
+        "baseline_value": "http://127.0.0.1:5000/cart",
+        "mutated_value": "http://127.0.0.1:5000/",
+        "equivalent": false,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "step_outcomes",
+        "baseline_value": [
+          true,
+          true,
+          true
+        ],
+        "mutated_value": [
+          true,
+          true,
+          true
+        ],
+        "equivalent": true,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "execution_duration",
+        "baseline_value": 0.4792598999920301,
+        "mutated_value": 0.5333873999770731,
+        "equivalent": true,
+        "weight": 0.5,
+        "details": "difference_seconds=0.054127"
+      }
+    ],
+    "metadata": {}
+  }
+}

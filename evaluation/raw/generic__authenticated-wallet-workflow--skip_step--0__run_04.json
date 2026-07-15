@@ -1,0 +1,108 @@
+{
+  "group": "generic_mutation",
+  "source_workflow_id": "authenticated-wallet-workflow",
+  "mutation_workflow_id": "authenticated-wallet-workflow--skip_step--0",
+  "mutation_strategy": "skip_step",
+  "run_index": 4,
+  "started_at": "2026-07-15T22:13:30.378779+00:00",
+  "execution_success": false,
+  "successful_steps": 0,
+  "failed_steps": 2,
+  "total_duration_seconds": 66.03733429999556,
+  "comparison_status": "divergent",
+  "divergence_score": 0.7333333333333333,
+  "anomaly_detected": true,
+  "execution": {
+    "workflow_id": "authenticated-wallet-workflow--skip_step--0",
+    "workflow_name": "Authenticated Wallet Reset Workflow [skip_step]",
+    "success": false,
+    "successful_steps": 0,
+    "failed_steps": 2,
+    "total_duration_seconds": 66.03733429999556,
+    "started_at": "2026-07-15T22:13:31.095778+00:00",
+    "finished_at": "2026-07-15T22:14:36.968940+00:00",
+    "steps": [
+      {
+        "step_index": 0,
+        "operation_type": "login",
+        "label": "Authenticate Session",
+        "success": false,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/",
+        "duration_seconds": 66.03030169999693,
+        "error": "Locator.fill: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"input[name=\\\"email\\\"]\").first\n",
+        "metadata": {}
+      },
+      {
+        "step_index": 1,
+        "operation_type": "top_up_wallet",
+        "label": "Reset Wallet Balance",
+        "success": false,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/",
+        "duration_seconds": 0.007032599998638034,
+        "error": "Page.goto: net::ERR_NETWORK_IO_SUSPENDED at http://127.0.0.1:5000/topup\nCall log:\n  - navigating to \"http://127.0.0.1:5000/topup\", waiting until \"domcontentloaded\"\n",
+        "metadata": {}
+      }
+    ],
+    "metadata": {}
+  },
+  "comparison": {
+    "baseline_workflow_id": "authenticated-wallet-workflow",
+    "mutated_workflow_id": "authenticated-wallet-workflow--skip_step--0",
+    "status": "divergent",
+    "divergence_score": 0.7333333333333333,
+    "divergent_signals": 4,
+    "equivalent_signals": 1,
+    "signals": [
+      {
+        "signal_name": "workflow_success",
+        "baseline_value": true,
+        "mutated_value": false,
+        "equivalent": false,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "failed_steps",
+        "baseline_value": 0,
+        "mutated_value": 2,
+        "equivalent": false,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "final_url",
+        "baseline_value": "http://127.0.0.1:5000/",
+        "mutated_value": "http://127.0.0.1:5000/",
+        "equivalent": true,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "step_outcomes",
+        "baseline_value": [
+          true,
+          true,
+          true
+        ],
+        "mutated_value": [
+          false,
+          false
+        ],
+        "equivalent": false,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "execution_duration",
+        "baseline_value": 0.499881099909544,
+        "mutated_value": 66.03733429999556,
+        "equivalent": false,
+        "weight": 0.5,
+        "details": "difference_seconds=65.537453"
+      }
+    ],
+    "metadata": {}
+  }
+}

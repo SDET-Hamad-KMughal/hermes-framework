@@ -4,11 +4,11 @@
   "mutation_workflow_id": "authenticated-wallet-workflow--skip_step--0",
   "mutation_strategy": "skip_step",
   "run_index": 1,
-  "started_at": "2026-07-15T20:04:58.382012+00:00",
+  "started_at": "2026-07-15T22:10:17.399526+00:00",
   "execution_success": false,
   "successful_steps": 1,
   "failed_steps": 1,
-  "total_duration_seconds": 15.02089889999479,
+  "total_duration_seconds": 15.076068399997894,
   "comparison_status": "divergent",
   "divergence_score": 1.0,
   "anomaly_detected": true,
@@ -18,9 +18,9 @@
     "success": false,
     "successful_steps": 1,
     "failed_steps": 1,
-    "total_duration_seconds": 15.02089889999479,
-    "started_at": "2026-07-15T20:04:58.967611+00:00",
-    "finished_at": "2026-07-15T20:05:13.989784+00:00",
+    "total_duration_seconds": 15.076068399997894,
+    "started_at": "2026-07-15T22:10:18.327191+00:00",
+    "finished_at": "2026-07-15T22:10:33.404888+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -29,7 +29,7 @@
         "success": false,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 15.003386700002011,
+        "duration_seconds": 15.010087999980897,
         "error": "Locator.fill: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"input[name=\\\"email\\\"]\").first\n",
         "metadata": {}
       },
@@ -40,7 +40,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login?next=%2Ftopup",
-        "duration_seconds": 0.017512199992779642,
+        "duration_seconds": 0.06598040001699701,
         "error": null,
         "metadata": {}
       }
@@ -96,11 +96,11 @@
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.3122112999553792,
-        "mutated_value": 15.02089889999479,
+        "baseline_value": 0.5104302000254393,
+        "mutated_value": 15.076068399997894,
         "equivalent": false,
         "weight": 0.5,
-        "details": "difference_seconds=14.708688"
+        "details": "difference_seconds=14.565638"
       }
     ],
     "metadata": {}

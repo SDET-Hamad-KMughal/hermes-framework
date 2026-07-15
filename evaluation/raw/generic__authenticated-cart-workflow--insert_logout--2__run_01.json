@@ -4,11 +4,11 @@
   "mutation_workflow_id": "authenticated-cart-workflow--insert_logout--2",
   "mutation_strategy": "insert_logout",
   "run_index": 1,
-  "started_at": "2026-07-15T20:03:52.123899+00:00",
+  "started_at": "2026-07-15T21:42:33.627586+00:00",
   "execution_success": false,
   "successful_steps": 3,
   "failed_steps": 1,
-  "total_duration_seconds": 0.37337429996114224,
+  "total_duration_seconds": 0.5461850999272428,
   "comparison_status": "divergent",
   "divergence_score": 0.6666666666666666,
   "anomaly_detected": true,
@@ -18,9 +18,9 @@
     "success": false,
     "successful_steps": 3,
     "failed_steps": 1,
-    "total_duration_seconds": 0.37337429996114224,
-    "started_at": "2026-07-15T20:03:52.648274+00:00",
-    "finished_at": "2026-07-15T20:03:53.024258+00:00",
+    "total_duration_seconds": 0.5461850999272428,
+    "started_at": "2026-07-15T21:42:34.478033+00:00",
+    "finished_at": "2026-07-15T21:42:35.023762+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -29,7 +29,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login",
-        "duration_seconds": 0.045293400005903095,
+        "duration_seconds": 0.05130369996186346,
         "error": null,
         "metadata": {}
       },
@@ -40,7 +40,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/login",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.23950299998978153,
+        "duration_seconds": 0.4060378999565728,
         "error": null,
         "metadata": {}
       },
@@ -51,7 +51,7 @@
         "success": false,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 1.1899974197149277e-05,
+        "duration_seconds": 1.279998105019331e-05,
         "error": "step requires either selector or target_state_id",
         "metadata": {}
       },
@@ -62,7 +62,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/cart",
-        "duration_seconds": 0.08856599999126047,
+        "duration_seconds": 0.08883070002775639,
         "error": null,
         "metadata": {}
       }
@@ -120,11 +120,11 @@
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.37636870000278577,
-        "mutated_value": 0.37337429996114224,
+        "baseline_value": 0.5028026000363752,
+        "mutated_value": 0.5461850999272428,
         "equivalent": true,
         "weight": 0.5,
-        "details": "difference_seconds=0.002994"
+        "details": "difference_seconds=0.043382"
       }
     ],
     "metadata": {}

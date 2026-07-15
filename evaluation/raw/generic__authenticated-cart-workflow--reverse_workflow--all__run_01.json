@@ -4,11 +4,11 @@
   "mutation_workflow_id": "authenticated-cart-workflow--reverse_workflow--all",
   "mutation_strategy": "reverse_workflow",
   "run_index": 1,
-  "started_at": "2026-07-15T20:03:49.233256+00:00",
+  "started_at": "2026-07-15T21:42:29.267547+00:00",
   "execution_success": true,
   "successful_steps": 3,
   "failed_steps": 0,
-  "total_duration_seconds": 0.34384170005796477,
+  "total_duration_seconds": 0.46355509996647015,
   "comparison_status": "equivalent",
   "divergence_score": 0.26666666666666666,
   "anomaly_detected": false,
@@ -18,9 +18,9 @@
     "success": true,
     "successful_steps": 3,
     "failed_steps": 0,
-    "total_duration_seconds": 0.34384170005796477,
-    "started_at": "2026-07-15T20:03:49.762599+00:00",
-    "finished_at": "2026-07-15T20:03:50.106626+00:00",
+    "total_duration_seconds": 0.46355509996647015,
+    "started_at": "2026-07-15T21:42:30.169095+00:00",
+    "finished_at": "2026-07-15T21:42:30.632988+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -29,7 +29,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login?next=%2Fcart",
-        "duration_seconds": 0.10088100004941225,
+        "duration_seconds": 0.1168337999843061,
         "error": null,
         "metadata": {}
       },
@@ -40,7 +40,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/login?next=%2Fcart",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.22437489998992532,
+        "duration_seconds": 0.32064859999809414,
         "error": null,
         "metadata": {}
       },
@@ -51,7 +51,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.018585800018627197,
+        "duration_seconds": 0.026072699984069914,
         "error": null,
         "metadata": {}
       }
@@ -108,11 +108,11 @@
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.37636870000278577,
-        "mutated_value": 0.34384170005796477,
+        "baseline_value": 0.5028026000363752,
+        "mutated_value": 0.46355509996647015,
         "equivalent": true,
         "weight": 0.5,
-        "details": "difference_seconds=0.032527"
+        "details": "difference_seconds=0.039248"
       }
     ],
     "metadata": {}

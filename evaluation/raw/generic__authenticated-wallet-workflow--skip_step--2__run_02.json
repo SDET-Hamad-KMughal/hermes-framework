@@ -1,0 +1,108 @@
+{
+  "group": "generic_mutation",
+  "source_workflow_id": "authenticated-wallet-workflow",
+  "mutation_workflow_id": "authenticated-wallet-workflow--skip_step--2",
+  "mutation_strategy": "skip_step",
+  "run_index": 2,
+  "started_at": "2026-07-15T22:11:38.880965+00:00",
+  "execution_success": true,
+  "successful_steps": 2,
+  "failed_steps": 0,
+  "total_duration_seconds": 0.4467882000026293,
+  "comparison_status": "equivalent",
+  "divergence_score": 0.2,
+  "anomaly_detected": false,
+  "execution": {
+    "workflow_id": "authenticated-wallet-workflow--skip_step--2",
+    "workflow_name": "Authenticated Wallet Reset Workflow [skip_step]",
+    "success": true,
+    "successful_steps": 2,
+    "failed_steps": 0,
+    "total_duration_seconds": 0.4467882000026293,
+    "started_at": "2026-07-15T22:11:39.797641+00:00",
+    "finished_at": "2026-07-15T22:11:40.243419+00:00",
+    "steps": [
+      {
+        "step_index": 0,
+        "operation_type": "login",
+        "label": "Navigate to Login",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/login",
+        "duration_seconds": 0.05556649999925867,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 1,
+        "operation_type": "login",
+        "label": "Authenticate Session",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/login",
+        "url_after": "http://127.0.0.1:5000/",
+        "duration_seconds": 0.39122170000337064,
+        "error": null,
+        "metadata": {}
+      }
+    ],
+    "metadata": {}
+  },
+  "comparison": {
+    "baseline_workflow_id": "authenticated-wallet-workflow",
+    "mutated_workflow_id": "authenticated-wallet-workflow--skip_step--2",
+    "status": "equivalent",
+    "divergence_score": 0.2,
+    "divergent_signals": 1,
+    "equivalent_signals": 4,
+    "signals": [
+      {
+        "signal_name": "workflow_success",
+        "baseline_value": true,
+        "mutated_value": true,
+        "equivalent": true,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "failed_steps",
+        "baseline_value": 0,
+        "mutated_value": 0,
+        "equivalent": true,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "final_url",
+        "baseline_value": "http://127.0.0.1:5000/",
+        "mutated_value": "http://127.0.0.1:5000/",
+        "equivalent": true,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "step_outcomes",
+        "baseline_value": [
+          true,
+          true,
+          true
+        ],
+        "mutated_value": [
+          true,
+          true
+        ],
+        "equivalent": false,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "execution_duration",
+        "baseline_value": 0.42271819995949045,
+        "mutated_value": 0.4467882000026293,
+        "equivalent": true,
+        "weight": 0.5,
+        "details": "difference_seconds=0.024070"
+      }
+    ],
+    "metadata": {}
+  }
+}

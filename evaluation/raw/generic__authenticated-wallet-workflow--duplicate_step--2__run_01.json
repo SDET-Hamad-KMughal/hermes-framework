@@ -4,11 +4,11 @@
   "mutation_workflow_id": "authenticated-wallet-workflow--duplicate_step--2",
   "mutation_strategy": "duplicate_step",
   "run_index": 1,
-  "started_at": "2026-07-15T20:05:32.440568+00:00",
+  "started_at": "2026-07-15T22:10:54.163167+00:00",
   "execution_success": true,
   "successful_steps": 4,
   "failed_steps": 0,
-  "total_duration_seconds": 0.3067668999428861,
+  "total_duration_seconds": 0.5602298000594601,
   "comparison_status": "equivalent",
   "divergence_score": 0.2,
   "anomaly_detected": false,
@@ -18,9 +18,9 @@
     "success": true,
     "successful_steps": 4,
     "failed_steps": 0,
-    "total_duration_seconds": 0.3067668999428861,
-    "started_at": "2026-07-15T20:05:32.983468+00:00",
-    "finished_at": "2026-07-15T20:05:33.290851+00:00",
+    "total_duration_seconds": 0.5602298000594601,
+    "started_at": "2026-07-15T22:10:55.092082+00:00",
+    "finished_at": "2026-07-15T22:10:55.652353+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -29,7 +29,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login",
-        "duration_seconds": 0.031226699997205287,
+        "duration_seconds": 0.06184090004535392,
         "error": null,
         "metadata": {}
       },
@@ -40,7 +40,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/login",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.23323159996652976,
+        "duration_seconds": 0.39305130002321675,
         "error": null,
         "metadata": {}
       },
@@ -51,7 +51,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.019573100027628243,
+        "duration_seconds": 0.055934200005140156,
         "error": null,
         "metadata": {}
       },
@@ -62,7 +62,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.022735499951522797,
+        "duration_seconds": 0.049403399985749274,
         "error": null,
         "metadata": {}
       }
@@ -120,11 +120,11 @@
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.3122112999553792,
-        "mutated_value": 0.3067668999428861,
+        "baseline_value": 0.5104302000254393,
+        "mutated_value": 0.5602298000594601,
         "equivalent": true,
         "weight": 0.5,
-        "details": "difference_seconds=0.005444"
+        "details": "difference_seconds=0.049800"
       }
     ],
     "metadata": {}

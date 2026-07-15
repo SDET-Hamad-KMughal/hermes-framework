@@ -1,0 +1,130 @@
+{
+  "group": "hypothesis_mutation",
+  "source_workflow_id": "authenticated-order-history-workflow",
+  "hypothesis_id": "H001",
+  "hypothesis_title": "Order history requires authentication",
+  "hypothesis_category": "authorization",
+  "mutation_strategy": "remove_prerequisite",
+  "expected_behavior": "reject",
+  "target_operation": "view_orders",
+  "prerequisite_operation": "login",
+  "confidence": 0.95,
+  "mutation_workflow_id": "authenticated-order-history-workflow--h001",
+  "run_index": 1,
+  "started_at": "2026-07-15T20:07:30.550315+00:00",
+  "execution_success": false,
+  "successful_steps": 1,
+  "failed_steps": 1,
+  "total_duration_seconds": 15.030223799985833,
+  "comparison_status": "divergent",
+  "divergence_score": 1.0,
+  "anomaly_detected": true,
+  "execution": {
+    "workflow_id": "authenticated-order-history-workflow--h001",
+    "workflow_name": "Authenticated Order History Workflow \u2014 Order history requires authentication",
+    "success": false,
+    "successful_steps": 1,
+    "failed_steps": 1,
+    "total_duration_seconds": 15.030223799985833,
+    "started_at": "2026-07-15T20:07:31.088669+00:00",
+    "finished_at": "2026-07-15T20:07:46.119583+00:00",
+    "steps": [
+      {
+        "step_index": 0,
+        "operation_type": "login",
+        "label": "Authenticate Session",
+        "success": false,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/",
+        "duration_seconds": 15.012804199999664,
+        "error": "Locator.fill: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"input[name=\\\"email\\\"]\").first\n",
+        "metadata": {}
+      },
+      {
+        "step_index": 1,
+        "operation_type": "view_orders",
+        "label": "View Order History",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/login?next=%2Forders",
+        "duration_seconds": 0.017419599986169487,
+        "error": null,
+        "metadata": {}
+      }
+    ],
+    "metadata": {}
+  },
+  "comparison": {
+    "baseline_workflow_id": "authenticated-order-history-workflow",
+    "mutated_workflow_id": "authenticated-order-history-workflow--h001",
+    "status": "divergent",
+    "divergence_score": 1.0,
+    "divergent_signals": 5,
+    "equivalent_signals": 0,
+    "signals": [
+      {
+        "signal_name": "workflow_success",
+        "baseline_value": true,
+        "mutated_value": false,
+        "equivalent": false,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "failed_steps",
+        "baseline_value": 0,
+        "mutated_value": 1,
+        "equivalent": false,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "final_url",
+        "baseline_value": "http://127.0.0.1:5000/orders",
+        "mutated_value": "http://127.0.0.1:5000/login?next=%2Forders",
+        "equivalent": false,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "step_outcomes",
+        "baseline_value": [
+          true,
+          true,
+          true
+        ],
+        "mutated_value": [
+          false,
+          true
+        ],
+        "equivalent": false,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "execution_duration",
+        "baseline_value": 0.30553020001389086,
+        "mutated_value": 15.030223799985833,
+        "equivalent": false,
+        "weight": 0.5,
+        "details": "difference_seconds=14.724694"
+      }
+    ],
+    "metadata": {}
+  },
+  "hypothesis": {
+    "hypothesis_id": "H001",
+    "title": "Order history requires authentication",
+    "description": "view_orders should be rejected when login is removed.",
+    "category": "authorization",
+    "source_workflow_id": "authenticated-order-history-workflow",
+    "mutation_strategy": "remove_prerequisite",
+    "expected_behavior": "reject",
+    "target_operation": "view_orders",
+    "prerequisite_operation": "login",
+    "confidence": 0.95,
+    "metadata": {
+      "template_id": "order-history-authorization"
+    }
+  }
+}

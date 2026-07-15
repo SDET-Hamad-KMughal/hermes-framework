@@ -11,13 +11,13 @@
   "confidence": 0.95,
   "mutation_workflow_id": "authenticated-order-history-workflow--h001",
   "run_index": 1,
-  "started_at": "2026-07-15T20:07:30.550315+00:00",
+  "started_at": "2026-07-15T22:28:58.715466+00:00",
   "execution_success": false,
   "successful_steps": 1,
   "failed_steps": 1,
-  "total_duration_seconds": 15.030223799985833,
+  "total_duration_seconds": 15.053506300027948,
   "comparison_status": "divergent",
-  "divergence_score": 1.0,
+  "divergence_score": 0.7333333333333333,
   "anomaly_detected": true,
   "execution": {
     "workflow_id": "authenticated-order-history-workflow--h001",
@@ -25,9 +25,9 @@
     "success": false,
     "successful_steps": 1,
     "failed_steps": 1,
-    "total_duration_seconds": 15.030223799985833,
-    "started_at": "2026-07-15T20:07:31.088669+00:00",
-    "finished_at": "2026-07-15T20:07:46.119583+00:00",
+    "total_duration_seconds": 15.053506300027948,
+    "started_at": "2026-07-15T22:28:59.246377+00:00",
+    "finished_at": "2026-07-15T22:29:14.300103+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -36,7 +36,7 @@
         "success": false,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 15.012804199999664,
+        "duration_seconds": 15.01570550003089,
         "error": "Locator.fill: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"input[name=\\\"email\\\"]\").first\n",
         "metadata": {}
       },
@@ -46,8 +46,8 @@
         "label": "View Order History",
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
-        "url_after": "http://127.0.0.1:5000/login?next=%2Forders",
-        "duration_seconds": 0.017419599986169487,
+        "url_after": "http://127.0.0.1:5000/orders",
+        "duration_seconds": 0.037800799997057766,
         "error": null,
         "metadata": {}
       }
@@ -58,9 +58,9 @@
     "baseline_workflow_id": "authenticated-order-history-workflow",
     "mutated_workflow_id": "authenticated-order-history-workflow--h001",
     "status": "divergent",
-    "divergence_score": 1.0,
-    "divergent_signals": 5,
-    "equivalent_signals": 0,
+    "divergence_score": 0.7333333333333333,
+    "divergent_signals": 4,
+    "equivalent_signals": 1,
     "signals": [
       {
         "signal_name": "workflow_success",
@@ -81,8 +81,8 @@
       {
         "signal_name": "final_url",
         "baseline_value": "http://127.0.0.1:5000/orders",
-        "mutated_value": "http://127.0.0.1:5000/login?next=%2Forders",
-        "equivalent": false,
+        "mutated_value": "http://127.0.0.1:5000/orders",
+        "equivalent": true,
         "weight": 2.0,
         "details": null
       },
@@ -103,11 +103,11 @@
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.30553020001389086,
-        "mutated_value": 15.030223799985833,
+        "baseline_value": 0.2606678000302054,
+        "mutated_value": 15.053506300027948,
         "equivalent": false,
         "weight": 0.5,
-        "details": "difference_seconds=14.724694"
+        "details": "difference_seconds=14.792838"
       }
     ],
     "metadata": {}

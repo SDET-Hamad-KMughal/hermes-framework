@@ -4,23 +4,23 @@
   "mutation_workflow_id": "authenticated-order-history-workflow--skip_step--1",
   "mutation_strategy": "skip_step",
   "run_index": 1,
-  "started_at": "2026-07-15T20:06:11.513468+00:00",
+  "started_at": "2026-07-15T22:16:46.551330+00:00",
   "execution_success": true,
   "successful_steps": 2,
   "failed_steps": 0,
-  "total_duration_seconds": 0.06717859994387254,
-  "comparison_status": "divergent",
-  "divergence_score": 0.4666666666666667,
-  "anomaly_detected": true,
+  "total_duration_seconds": 0.06961150001734495,
+  "comparison_status": "equivalent",
+  "divergence_score": 0.2,
+  "anomaly_detected": false,
   "execution": {
     "workflow_id": "authenticated-order-history-workflow--skip_step--1",
     "workflow_name": "Authenticated Order History Workflow [skip_step]",
     "success": true,
     "successful_steps": 2,
     "failed_steps": 0,
-    "total_duration_seconds": 0.06717859994387254,
-    "started_at": "2026-07-15T20:06:12.082039+00:00",
-    "finished_at": "2026-07-15T20:06:12.149863+00:00",
+    "total_duration_seconds": 0.06961150001734495,
+    "started_at": "2026-07-15T22:16:47.551034+00:00",
+    "finished_at": "2026-07-15T22:16:47.621130+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -29,7 +29,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login",
-        "duration_seconds": 0.04664399998728186,
+        "duration_seconds": 0.04137950000585988,
         "error": null,
         "metadata": {}
       },
@@ -39,8 +39,8 @@
         "label": "View Order History",
         "success": true,
         "url_before": "http://127.0.0.1:5000/login",
-        "url_after": "http://127.0.0.1:5000/login?next=%2Forders",
-        "duration_seconds": 0.020534599956590682,
+        "url_after": "http://127.0.0.1:5000/orders",
+        "duration_seconds": 0.02823200001148507,
         "error": null,
         "metadata": {}
       }
@@ -50,10 +50,10 @@
   "comparison": {
     "baseline_workflow_id": "authenticated-order-history-workflow",
     "mutated_workflow_id": "authenticated-order-history-workflow--skip_step--1",
-    "status": "divergent",
-    "divergence_score": 0.4666666666666667,
-    "divergent_signals": 2,
-    "equivalent_signals": 3,
+    "status": "equivalent",
+    "divergence_score": 0.2,
+    "divergent_signals": 1,
+    "equivalent_signals": 4,
     "signals": [
       {
         "signal_name": "workflow_success",
@@ -74,8 +74,8 @@
       {
         "signal_name": "final_url",
         "baseline_value": "http://127.0.0.1:5000/orders",
-        "mutated_value": "http://127.0.0.1:5000/login?next=%2Forders",
-        "equivalent": false,
+        "mutated_value": "http://127.0.0.1:5000/orders",
+        "equivalent": true,
         "weight": 2.0,
         "details": null
       },
@@ -96,11 +96,11 @@
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.29778270004317164,
-        "mutated_value": 0.06717859994387254,
+        "baseline_value": 0.4004487000638619,
+        "mutated_value": 0.06961150001734495,
         "equivalent": true,
         "weight": 0.5,
-        "details": "difference_seconds=0.230604"
+        "details": "difference_seconds=0.330837"
       }
     ],
     "metadata": {}

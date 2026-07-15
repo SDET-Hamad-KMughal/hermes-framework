@@ -4,11 +4,11 @@
   "mutation_workflow_id": "authenticated-wallet-workflow--insert_logout--3",
   "mutation_strategy": "insert_logout",
   "run_index": 1,
-  "started_at": "2026-07-15T20:05:53.899107+00:00",
+  "started_at": "2026-07-15T22:11:19.103177+00:00",
   "execution_success": false,
   "successful_steps": 3,
   "failed_steps": 1,
-  "total_duration_seconds": 0.3158179999445565,
+  "total_duration_seconds": 0.41114600002765656,
   "comparison_status": "divergent",
   "divergence_score": 0.6666666666666666,
   "anomaly_detected": true,
@@ -18,9 +18,9 @@
     "success": false,
     "successful_steps": 3,
     "failed_steps": 1,
-    "total_duration_seconds": 0.3158179999445565,
-    "started_at": "2026-07-15T20:05:54.474528+00:00",
-    "finished_at": "2026-07-15T20:05:54.791482+00:00",
+    "total_duration_seconds": 0.41114600002765656,
+    "started_at": "2026-07-15T22:11:19.921590+00:00",
+    "finished_at": "2026-07-15T22:11:20.331239+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -29,7 +29,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login",
-        "duration_seconds": 0.04998529999284074,
+        "duration_seconds": 0.04669230000581592,
         "error": null,
         "metadata": {}
       },
@@ -40,7 +40,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/login",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.24514820001786575,
+        "duration_seconds": 0.3209021000075154,
         "error": null,
         "metadata": {}
       },
@@ -51,7 +51,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.020673699968028814,
+        "duration_seconds": 0.04353860003175214,
         "error": null,
         "metadata": {}
       },
@@ -62,7 +62,7 @@
         "success": false,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 1.079996582120657e-05,
+        "duration_seconds": 1.2999982573091984e-05,
         "error": "step requires either selector or target_state_id",
         "metadata": {}
       }
@@ -120,11 +120,11 @@
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.3122112999553792,
-        "mutated_value": 0.3158179999445565,
+        "baseline_value": 0.5104302000254393,
+        "mutated_value": 0.41114600002765656,
         "equivalent": true,
         "weight": 0.5,
-        "details": "difference_seconds=0.003607"
+        "details": "difference_seconds=0.099284"
       }
     ],
     "metadata": {}

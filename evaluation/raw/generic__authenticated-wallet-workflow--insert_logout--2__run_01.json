@@ -4,11 +4,11 @@
   "mutation_workflow_id": "authenticated-wallet-workflow--insert_logout--2",
   "mutation_strategy": "insert_logout",
   "run_index": 1,
-  "started_at": "2026-07-15T20:05:52.943153+00:00",
+  "started_at": "2026-07-15T22:11:17.774681+00:00",
   "execution_success": false,
   "successful_steps": 3,
   "failed_steps": 1,
-  "total_duration_seconds": 0.27569239999866113,
+  "total_duration_seconds": 0.3971078000613488,
   "comparison_status": "divergent",
   "divergence_score": 0.6666666666666666,
   "anomaly_detected": true,
@@ -18,9 +18,9 @@
     "success": false,
     "successful_steps": 3,
     "failed_steps": 1,
-    "total_duration_seconds": 0.27569239999866113,
-    "started_at": "2026-07-15T20:05:53.554385+00:00",
-    "finished_at": "2026-07-15T20:05:53.830246+00:00",
+    "total_duration_seconds": 0.3971078000613488,
+    "started_at": "2026-07-15T22:11:18.592081+00:00",
+    "finished_at": "2026-07-15T22:11:18.987065+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -29,7 +29,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login",
-        "duration_seconds": 0.014978500024881214,
+        "duration_seconds": 0.015797400032170117,
         "error": null,
         "metadata": {}
       },
@@ -40,7 +40,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/login",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.23743709997506812,
+        "duration_seconds": 0.33699959999648854,
         "error": null,
         "metadata": {}
       },
@@ -51,7 +51,7 @@
         "success": false,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 1.160003012046218e-05,
+        "duration_seconds": 1.3300043065100908e-05,
         "error": "step requires either selector or target_state_id",
         "metadata": {}
       },
@@ -62,7 +62,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.023265199968591332,
+        "duration_seconds": 0.044297499989625067,
         "error": null,
         "metadata": {}
       }
@@ -120,11 +120,11 @@
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.3122112999553792,
-        "mutated_value": 0.27569239999866113,
+        "baseline_value": 0.5104302000254393,
+        "mutated_value": 0.3971078000613488,
         "equivalent": true,
         "weight": 0.5,
-        "details": "difference_seconds=0.036519"
+        "details": "difference_seconds=0.113322"
       }
     ],
     "metadata": {}

@@ -4,23 +4,23 @@
   "mutation_workflow_id": "authenticated-checkout-workflow--reverse_workflow--all",
   "mutation_strategy": "reverse_workflow",
   "run_index": 1,
-  "started_at": "2026-07-15T20:04:51.005016+00:00",
+  "started_at": "2026-07-15T21:50:58.969054+00:00",
   "execution_success": true,
   "successful_steps": 4,
   "failed_steps": 0,
-  "total_duration_seconds": 0.39353619993198663,
-  "comparison_status": "equivalent",
-  "divergence_score": 0.26666666666666666,
-  "anomaly_detected": false,
+  "total_duration_seconds": 0.5877831999678165,
+  "comparison_status": "divergent",
+  "divergence_score": 1.0,
+  "anomaly_detected": true,
   "execution": {
     "workflow_id": "authenticated-checkout-workflow--reverse_workflow--all",
     "workflow_name": "Authenticated Checkout Workflow [reverse_workflow]",
     "success": true,
     "successful_steps": 4,
     "failed_steps": 0,
-    "total_duration_seconds": 0.39353619993198663,
-    "started_at": "2026-07-15T20:04:51.595116+00:00",
-    "finished_at": "2026-07-15T20:04:51.988294+00:00",
+    "total_duration_seconds": 0.5877831999678165,
+    "started_at": "2026-07-15T21:50:59.933256+00:00",
+    "finished_at": "2026-07-15T21:51:00.522530+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -29,7 +29,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login?next=%2Fcart",
-        "duration_seconds": 0.097950299968943,
+        "duration_seconds": 0.12656519998563454,
         "error": null,
         "metadata": {}
       },
@@ -40,7 +40,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/login?next=%2Fcart",
         "url_after": "http://127.0.0.1:5000/login?next=%2Fcart",
-        "duration_seconds": 0.06703919998835772,
+        "duration_seconds": 0.06990240002050996,
         "error": null,
         "metadata": {}
       },
@@ -51,7 +51,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/login?next=%2Fcart",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.21027709997724742,
+        "duration_seconds": 0.34611439995933324,
         "error": null,
         "metadata": {}
       },
@@ -62,7 +62,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.01826959999743849,
+        "duration_seconds": 0.04520120000233874,
         "error": null,
         "metadata": {}
       }
@@ -72,24 +72,24 @@
   "comparison": {
     "baseline_workflow_id": "authenticated-checkout-workflow",
     "mutated_workflow_id": "authenticated-checkout-workflow--reverse_workflow--all",
-    "status": "equivalent",
-    "divergence_score": 0.26666666666666666,
-    "divergent_signals": 1,
-    "equivalent_signals": 4,
+    "status": "divergent",
+    "divergence_score": 1.0,
+    "divergent_signals": 5,
+    "equivalent_signals": 0,
     "signals": [
       {
         "signal_name": "workflow_success",
-        "baseline_value": true,
+        "baseline_value": false,
         "mutated_value": true,
-        "equivalent": true,
+        "equivalent": false,
         "weight": 2.0,
         "details": null
       },
       {
         "signal_name": "failed_steps",
-        "baseline_value": 0,
+        "baseline_value": 1,
         "mutated_value": 0,
-        "equivalent": true,
+        "equivalent": false,
         "weight": 1.5,
         "details": null
       },
@@ -107,7 +107,7 @@
           true,
           true,
           true,
-          true
+          false
         ],
         "mutated_value": [
           true,
@@ -115,17 +115,17 @@
           true,
           true
         ],
-        "equivalent": true,
+        "equivalent": false,
         "weight": 1.5,
         "details": null
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.42251510004280135,
-        "mutated_value": 0.39353619993198663,
-        "equivalent": true,
+        "baseline_value": 15.39436190010747,
+        "mutated_value": 0.5877831999678165,
+        "equivalent": false,
         "weight": 0.5,
-        "details": "difference_seconds=0.028979"
+        "details": "difference_seconds=14.806579"
       }
     ],
     "metadata": {}

@@ -4,13 +4,13 @@
   "mutation_workflow_id": "authenticated-checkout-workflow--skip_step--1",
   "mutation_strategy": "skip_step",
   "run_index": 1,
-  "started_at": "2026-07-15T20:04:10.833700+00:00",
+  "started_at": "2026-07-15T21:48:29.281569+00:00",
   "execution_success": true,
   "successful_steps": 3,
   "failed_steps": 0,
-  "total_duration_seconds": 0.14743710006587207,
+  "total_duration_seconds": 0.1984946999582462,
   "comparison_status": "divergent",
-  "divergence_score": 0.4666666666666667,
+  "divergence_score": 1.0,
   "anomaly_detected": true,
   "execution": {
     "workflow_id": "authenticated-checkout-workflow--skip_step--1",
@@ -18,9 +18,9 @@
     "success": true,
     "successful_steps": 3,
     "failed_steps": 0,
-    "total_duration_seconds": 0.14743710006587207,
-    "started_at": "2026-07-15T20:04:11.361008+00:00",
-    "finished_at": "2026-07-15T20:04:11.508843+00:00",
+    "total_duration_seconds": 0.1984946999582462,
+    "started_at": "2026-07-15T21:48:30.102543+00:00",
+    "finished_at": "2026-07-15T21:48:30.300042+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -29,7 +29,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login",
-        "duration_seconds": 0.031718900019768625,
+        "duration_seconds": 0.04822759999660775,
         "error": null,
         "metadata": {}
       },
@@ -40,7 +40,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/login",
         "url_after": "http://127.0.0.1:5000/login",
-        "duration_seconds": 0.06683650001650676,
+        "duration_seconds": 0.08423269999912009,
         "error": null,
         "metadata": {}
       },
@@ -51,7 +51,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/login",
         "url_after": "http://127.0.0.1:5000/login",
-        "duration_seconds": 0.048881700029596686,
+        "duration_seconds": 0.06603439996251836,
         "error": null,
         "metadata": {}
       }
@@ -62,23 +62,23 @@
     "baseline_workflow_id": "authenticated-checkout-workflow",
     "mutated_workflow_id": "authenticated-checkout-workflow--skip_step--1",
     "status": "divergent",
-    "divergence_score": 0.4666666666666667,
-    "divergent_signals": 2,
-    "equivalent_signals": 3,
+    "divergence_score": 1.0,
+    "divergent_signals": 5,
+    "equivalent_signals": 0,
     "signals": [
       {
         "signal_name": "workflow_success",
-        "baseline_value": true,
+        "baseline_value": false,
         "mutated_value": true,
-        "equivalent": true,
+        "equivalent": false,
         "weight": 2.0,
         "details": null
       },
       {
         "signal_name": "failed_steps",
-        "baseline_value": 0,
+        "baseline_value": 1,
         "mutated_value": 0,
-        "equivalent": true,
+        "equivalent": false,
         "weight": 1.5,
         "details": null
       },
@@ -96,7 +96,7 @@
           true,
           true,
           true,
-          true
+          false
         ],
         "mutated_value": [
           true,
@@ -109,11 +109,11 @@
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.42251510004280135,
-        "mutated_value": 0.14743710006587207,
-        "equivalent": true,
+        "baseline_value": 15.39436190010747,
+        "mutated_value": 0.1984946999582462,
+        "equivalent": false,
         "weight": 0.5,
-        "details": "difference_seconds=0.275078"
+        "details": "difference_seconds=15.195867"
       }
     ],
     "metadata": {}

@@ -1,81 +1,81 @@
 {
-  "total_record_count": 74,
+  "total_record_count": 370,
   "group_count": 3,
-  "mutation_record_count": 69,
-  "total_anomalies": 47,
-  "overall_mutation_anomaly_rate": 0.6811594202898551,
+  "mutation_record_count": 345,
+  "total_anomalies": 265,
+  "overall_mutation_anomaly_rate": 0.7681159420289855,
   "workflow_record_counts": {
-    "authenticated-cart-workflow": 14,
-    "authenticated-checkout-workflow": 21,
-    "authenticated-order-history-workflow": 15,
-    "authenticated-wallet-workflow": 15,
-    "login-workflow": 9
+    "authenticated-cart-workflow": 70,
+    "authenticated-checkout-workflow": 105,
+    "authenticated-order-history-workflow": 75,
+    "authenticated-wallet-workflow": 75,
+    "login-workflow": 45
   },
   "groups": {
     "baseline": {
       "group": "baseline",
-      "record_count": 5,
-      "successful_executions": 5,
-      "failed_executions": 0,
-      "execution_success_rate": 1.0,
+      "record_count": 25,
+      "successful_executions": 20,
+      "failed_executions": 5,
+      "execution_success_rate": 0.8,
       "duration": {
-        "total_seconds": 1.7078553999308497,
-        "mean_seconds": 0.3415710799861699,
-        "median_seconds": 0.31511719996342435,
-        "minimum_seconds": 0.2886140000773594,
-        "maximum_seconds": 0.44520059996284544
+        "total_seconds": 85.77129209996201,
+        "mean_seconds": 3.4308516839984806,
+        "median_seconds": 0.4344821000704542,
+        "minimum_seconds": 0.25997660000575706,
+        "maximum_seconds": 15.594828499946743
       }
     },
     "generic_mutation": {
       "group": "generic_mutation",
-      "record_count": 64,
-      "successful_executions": 29,
-      "failed_executions": 35,
-      "execution_success_rate": 0.453125,
-      "anomaly_count": 43,
-      "anomaly_rate": 0.671875,
-      "equivalent_count": 21,
-      "divergent_count": 43,
-      "mean_divergence_score": 0.5343749999999999,
+      "record_count": 320,
+      "successful_executions": 110,
+      "failed_executions": 210,
+      "execution_success_rate": 0.34375,
+      "anomaly_count": 250,
+      "anomaly_rate": 0.78125,
+      "equivalent_count": 70,
+      "divergent_count": 250,
+      "mean_divergence_score": 0.5585416666666666,
       "median_divergence_score": 0.6666666666666666,
       "mutation_strategies": {
-        "duplicate_step": 15,
-        "insert_logout": 20,
-        "reverse_workflow": 4,
-        "skip_step": 15,
-        "swap_adjacent": 10
+        "duplicate_step": 75,
+        "insert_logout": 100,
+        "reverse_workflow": 20,
+        "skip_step": 75,
+        "swap_adjacent": 50
       },
       "duration": {
-        "total_seconds": 242.70794790011132,
-        "mean_seconds": 3.7923116859392394,
-        "median_seconds": 0.3532934999966528,
-        "minimum_seconds": 0.031741200014948845,
-        "maximum_seconds": 15.399949000042398
+        "total_seconds": 2423.8127441991237,
+        "mean_seconds": 7.574414825622261,
+        "median_seconds": 0.5209593000181485,
+        "minimum_seconds": 0.034002000000327826,
+        "maximum_seconds": 66.03733429999556
       }
     },
     "hypothesis_mutation": {
       "group": "hypothesis_mutation",
-      "record_count": 5,
-      "successful_executions": 2,
-      "failed_executions": 3,
+      "record_count": 25,
+      "successful_executions": 10,
+      "failed_executions": 15,
       "execution_success_rate": 0.4,
-      "anomaly_count": 4,
-      "anomaly_rate": 0.8,
-      "equivalent_count": 1,
-      "divergent_count": 4,
-      "mean_divergence_score": 0.7333333333333334,
-      "median_divergence_score": 1.0,
+      "anomaly_count": 15,
+      "anomaly_rate": 0.6,
+      "equivalent_count": 10,
+      "divergent_count": 15,
+      "mean_divergence_score": 0.42666666666666664,
+      "median_divergence_score": 0.4666666666666667,
       "mutation_strategies": {
-        "duplicate_operation": 1,
-        "remove_prerequisite": 3,
-        "swap_operations": 1
+        "duplicate_operation": 5,
+        "remove_prerequisite": 15,
+        "swap_operations": 5
       },
       "duration": {
-        "total_seconds": 46.16239529993618,
-        "mean_seconds": 9.232479059987236,
-        "median_seconds": 15.030223799985833,
-        "minimum_seconds": 0.3070485999924131,
-        "maximum_seconds": 15.343598500010557
+        "total_seconds": 233.7047054998693,
+        "mean_seconds": 9.348188219994773,
+        "median_seconds": 15.05018789996393,
+        "minimum_seconds": 0.37377749994629994,
+        "maximum_seconds": 15.608429100073408
       }
     }
   }

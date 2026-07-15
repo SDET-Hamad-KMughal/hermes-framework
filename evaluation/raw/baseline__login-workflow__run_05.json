@@ -1,0 +1,46 @@
+{
+  "group": "baseline",
+  "workflow_id": "login-workflow",
+  "workflow_name": "Authenticated Login Workflow",
+  "run_index": 5,
+  "started_at": "2026-07-15T21:34:49.950318+00:00",
+  "success": true,
+  "successful_steps": 2,
+  "failed_steps": 0,
+  "total_duration_seconds": 0.4037356000044383,
+  "execution": {
+    "workflow_id": "login-workflow",
+    "workflow_name": "Authenticated Login Workflow",
+    "success": true,
+    "successful_steps": 2,
+    "failed_steps": 0,
+    "total_duration_seconds": 0.4037356000044383,
+    "started_at": "2026-07-15T21:34:50.792522+00:00",
+    "finished_at": "2026-07-15T21:34:51.190424+00:00",
+    "steps": [
+      {
+        "step_index": 0,
+        "operation_type": "login",
+        "label": "Navigate to Login",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/login",
+        "duration_seconds": 0.049527600000146776,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 1,
+        "operation_type": "login",
+        "label": "Authenticate Session",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/login",
+        "url_after": "http://127.0.0.1:5000/",
+        "duration_seconds": 0.35420800000429153,
+        "error": null,
+        "metadata": {}
+      }
+    ],
+    "metadata": {}
+  }
+}

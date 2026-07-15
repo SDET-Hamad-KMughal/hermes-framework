@@ -4,11 +4,11 @@
   "mutation_workflow_id": "authenticated-cart-workflow--insert_logout--3",
   "mutation_strategy": "insert_logout",
   "run_index": 1,
-  "started_at": "2026-07-15T20:03:53.093381+00:00",
+  "started_at": "2026-07-15T21:42:35.138306+00:00",
   "execution_success": false,
   "successful_steps": 3,
   "failed_steps": 1,
-  "total_duration_seconds": 0.3613894000300206,
+  "total_duration_seconds": 0.49503799999365583,
   "comparison_status": "divergent",
   "divergence_score": 0.6666666666666666,
   "anomaly_detected": true,
@@ -18,9 +18,9 @@
     "success": false,
     "successful_steps": 3,
     "failed_steps": 1,
-    "total_duration_seconds": 0.3613894000300206,
-    "started_at": "2026-07-15T20:03:53.627583+00:00",
-    "finished_at": "2026-07-15T20:03:53.991351+00:00",
+    "total_duration_seconds": 0.49503799999365583,
+    "started_at": "2026-07-15T21:42:35.971521+00:00",
+    "finished_at": "2026-07-15T21:42:36.467730+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -29,7 +29,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login",
-        "duration_seconds": 0.03713630000129342,
+        "duration_seconds": 0.05505329999141395,
         "error": null,
         "metadata": {}
       },
@@ -40,7 +40,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/login",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.23708729998907074,
+        "duration_seconds": 0.35494430002290756,
         "error": null,
         "metadata": {}
       },
@@ -51,7 +51,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/cart",
-        "duration_seconds": 0.08715680002933368,
+        "duration_seconds": 0.08502649998990819,
         "error": null,
         "metadata": {}
       },
@@ -62,7 +62,7 @@
         "success": false,
         "url_before": "http://127.0.0.1:5000/cart",
         "url_after": "http://127.0.0.1:5000/cart",
-        "duration_seconds": 9.000010322779417e-06,
+        "duration_seconds": 1.3899989426136017e-05,
         "error": "step requires either selector or target_state_id",
         "metadata": {}
       }
@@ -120,11 +120,11 @@
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.37636870000278577,
-        "mutated_value": 0.3613894000300206,
+        "baseline_value": 0.5028026000363752,
+        "mutated_value": 0.49503799999365583,
         "equivalent": true,
         "weight": 0.5,
-        "details": "difference_seconds=0.014979"
+        "details": "difference_seconds=0.007765"
       }
     ],
     "metadata": {}

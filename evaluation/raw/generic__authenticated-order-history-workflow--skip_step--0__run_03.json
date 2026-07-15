@@ -1,0 +1,108 @@
+{
+  "group": "generic_mutation",
+  "source_workflow_id": "authenticated-order-history-workflow",
+  "mutation_workflow_id": "authenticated-order-history-workflow--skip_step--0",
+  "mutation_strategy": "skip_step",
+  "run_index": 3,
+  "started_at": "2026-07-15T22:19:38.019179+00:00",
+  "execution_success": false,
+  "successful_steps": 1,
+  "failed_steps": 1,
+  "total_duration_seconds": 15.056970600038767,
+  "comparison_status": "divergent",
+  "divergence_score": 0.7333333333333333,
+  "anomaly_detected": true,
+  "execution": {
+    "workflow_id": "authenticated-order-history-workflow--skip_step--0",
+    "workflow_name": "Authenticated Order History Workflow [skip_step]",
+    "success": false,
+    "successful_steps": 1,
+    "failed_steps": 1,
+    "total_duration_seconds": 15.056970600038767,
+    "started_at": "2026-07-15T22:19:38.813372+00:00",
+    "finished_at": "2026-07-15T22:19:53.870783+00:00",
+    "steps": [
+      {
+        "step_index": 0,
+        "operation_type": "login",
+        "label": "Authenticate Session",
+        "success": false,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/",
+        "duration_seconds": 15.016287800041027,
+        "error": "Locator.fill: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"input[name=\\\"email\\\"]\").first\n",
+        "metadata": {}
+      },
+      {
+        "step_index": 1,
+        "operation_type": "view_orders",
+        "label": "View Order History",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/orders",
+        "duration_seconds": 0.040682799997739494,
+        "error": null,
+        "metadata": {}
+      }
+    ],
+    "metadata": {}
+  },
+  "comparison": {
+    "baseline_workflow_id": "authenticated-order-history-workflow",
+    "mutated_workflow_id": "authenticated-order-history-workflow--skip_step--0",
+    "status": "divergent",
+    "divergence_score": 0.7333333333333333,
+    "divergent_signals": 4,
+    "equivalent_signals": 1,
+    "signals": [
+      {
+        "signal_name": "workflow_success",
+        "baseline_value": true,
+        "mutated_value": false,
+        "equivalent": false,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "failed_steps",
+        "baseline_value": 0,
+        "mutated_value": 1,
+        "equivalent": false,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "final_url",
+        "baseline_value": "http://127.0.0.1:5000/orders",
+        "mutated_value": "http://127.0.0.1:5000/orders",
+        "equivalent": true,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "step_outcomes",
+        "baseline_value": [
+          true,
+          true,
+          true
+        ],
+        "mutated_value": [
+          false,
+          true
+        ],
+        "equivalent": false,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "execution_duration",
+        "baseline_value": 0.42213550000451505,
+        "mutated_value": 15.056970600038767,
+        "equivalent": false,
+        "weight": 0.5,
+        "details": "difference_seconds=14.634835"
+      }
+    ],
+    "metadata": {}
+  }
+}

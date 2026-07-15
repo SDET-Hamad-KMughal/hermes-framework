@@ -4,11 +4,11 @@
   "mutation_workflow_id": "login-workflow--duplicate_step--1",
   "mutation_strategy": "duplicate_step",
   "run_index": 1,
-  "started_at": "2026-07-15T20:02:22.340223+00:00",
+  "started_at": "2026-07-15T21:36:52.246488+00:00",
   "execution_success": false,
   "successful_steps": 2,
   "failed_steps": 1,
-  "total_duration_seconds": 15.28961179999169,
+  "total_duration_seconds": 15.407007100002375,
   "comparison_status": "divergent",
   "divergence_score": 0.7333333333333333,
   "anomaly_detected": true,
@@ -18,9 +18,9 @@
     "success": false,
     "successful_steps": 2,
     "failed_steps": 1,
-    "total_duration_seconds": 15.28961179999169,
-    "started_at": "2026-07-15T20:02:22.862714+00:00",
-    "finished_at": "2026-07-15T20:02:38.154335+00:00",
+    "total_duration_seconds": 15.407007100002375,
+    "started_at": "2026-07-15T21:36:53.083582+00:00",
+    "finished_at": "2026-07-15T21:37:08.490420+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -29,7 +29,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login",
-        "duration_seconds": 0.04004639998311177,
+        "duration_seconds": 0.04312520002713427,
         "error": null,
         "metadata": {}
       },
@@ -40,7 +40,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/login",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.23830710002221167,
+        "duration_seconds": 0.3506368999951519,
         "error": null,
         "metadata": {}
       },
@@ -51,7 +51,7 @@
         "success": false,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 15.011258299986366,
+        "duration_seconds": 15.013244999980088,
         "error": "Locator.fill: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"input[name=\\\"email\\\"]\").first\n",
         "metadata": {}
       }
@@ -107,11 +107,11 @@
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.2605436000158079,
-        "mutated_value": 15.28961179999169,
+        "baseline_value": 0.30307929997798055,
+        "mutated_value": 15.407007100002375,
         "equivalent": false,
         "weight": 0.5,
-        "details": "difference_seconds=15.029068"
+        "details": "difference_seconds=15.103928"
       }
     ],
     "metadata": {}

@@ -1,0 +1,132 @@
+{
+  "group": "generic_mutation",
+  "source_workflow_id": "authenticated-wallet-workflow",
+  "mutation_workflow_id": "authenticated-wallet-workflow--insert_logout--1",
+  "mutation_strategy": "insert_logout",
+  "run_index": 5,
+  "started_at": "2026-07-15T22:16:25.198949+00:00",
+  "execution_success": false,
+  "successful_steps": 3,
+  "failed_steps": 1,
+  "total_duration_seconds": 0.43073480000020936,
+  "comparison_status": "divergent",
+  "divergence_score": 0.6666666666666666,
+  "anomaly_detected": true,
+  "execution": {
+    "workflow_id": "authenticated-wallet-workflow--insert_logout--1",
+    "workflow_name": "Authenticated Wallet Reset Workflow [insert_logout]",
+    "success": false,
+    "successful_steps": 3,
+    "failed_steps": 1,
+    "total_duration_seconds": 0.43073480000020936,
+    "started_at": "2026-07-15T22:16:26.007967+00:00",
+    "finished_at": "2026-07-15T22:16:26.442653+00:00",
+    "steps": [
+      {
+        "step_index": 0,
+        "operation_type": "login",
+        "label": "Navigate to Login",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/login",
+        "duration_seconds": 0.04471079999348149,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 1,
+        "operation_type": "logout",
+        "label": "Injected Logout",
+        "success": false,
+        "url_before": "http://127.0.0.1:5000/login",
+        "url_after": "http://127.0.0.1:5000/login",
+        "duration_seconds": 1.3399985618889332e-05,
+        "error": "step requires either selector or target_state_id",
+        "metadata": {}
+      },
+      {
+        "step_index": 2,
+        "operation_type": "login",
+        "label": "Authenticate Session",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/login",
+        "url_after": "http://127.0.0.1:5000/",
+        "duration_seconds": 0.34689790004631504,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 3,
+        "operation_type": "top_up_wallet",
+        "label": "Reset Wallet Balance",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/",
+        "duration_seconds": 0.03911269997479394,
+        "error": null,
+        "metadata": {}
+      }
+    ],
+    "metadata": {}
+  },
+  "comparison": {
+    "baseline_workflow_id": "authenticated-wallet-workflow",
+    "mutated_workflow_id": "authenticated-wallet-workflow--insert_logout--1",
+    "status": "divergent",
+    "divergence_score": 0.6666666666666666,
+    "divergent_signals": 3,
+    "equivalent_signals": 2,
+    "signals": [
+      {
+        "signal_name": "workflow_success",
+        "baseline_value": true,
+        "mutated_value": false,
+        "equivalent": false,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "failed_steps",
+        "baseline_value": 0,
+        "mutated_value": 1,
+        "equivalent": false,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "final_url",
+        "baseline_value": "http://127.0.0.1:5000/",
+        "mutated_value": "http://127.0.0.1:5000/",
+        "equivalent": true,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "step_outcomes",
+        "baseline_value": [
+          true,
+          true,
+          true
+        ],
+        "mutated_value": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "equivalent": false,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "execution_duration",
+        "baseline_value": 0.4140297999838367,
+        "mutated_value": 0.43073480000020936,
+        "equivalent": true,
+        "weight": 0.5,
+        "details": "difference_seconds=0.016705"
+      }
+    ],
+    "metadata": {}
+  }
+}

@@ -4,11 +4,11 @@
   "mutation_workflow_id": "authenticated-cart-workflow--swap_adjacent--0",
   "mutation_strategy": "swap_adjacent",
   "run_index": 1,
-  "started_at": "2026-07-15T20:03:32.640183+00:00",
+  "started_at": "2026-07-15T21:42:11.469577+00:00",
   "execution_success": false,
   "successful_steps": 2,
   "failed_steps": 1,
-  "total_duration_seconds": 15.081252600008156,
+  "total_duration_seconds": 15.128524599946104,
   "comparison_status": "divergent",
   "divergence_score": 1.0,
   "anomaly_detected": true,
@@ -18,9 +18,9 @@
     "success": false,
     "successful_steps": 2,
     "failed_steps": 1,
-    "total_duration_seconds": 15.081252600008156,
-    "started_at": "2026-07-15T20:03:33.166514+00:00",
-    "finished_at": "2026-07-15T20:03:48.247712+00:00",
+    "total_duration_seconds": 15.128524599946104,
+    "started_at": "2026-07-15T21:42:12.425517+00:00",
+    "finished_at": "2026-07-15T21:42:27.556408+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -29,7 +29,7 @@
         "success": false,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 15.007803299988154,
+        "duration_seconds": 15.009639199997764,
         "error": "Locator.fill: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"input[name=\\\"email\\\"]\").first\n",
         "metadata": {}
       },
@@ -40,7 +40,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login",
-        "duration_seconds": 0.012227100029122084,
+        "duration_seconds": 0.0425931999925524,
         "error": null,
         "metadata": {}
       },
@@ -51,7 +51,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/login",
         "url_after": "http://127.0.0.1:5000/login",
-        "duration_seconds": 0.061222199990879744,
+        "duration_seconds": 0.07629219995578751,
         "error": null,
         "metadata": {}
       }
@@ -108,11 +108,11 @@
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.37636870000278577,
-        "mutated_value": 15.081252600008156,
+        "baseline_value": 0.5028026000363752,
+        "mutated_value": 15.128524599946104,
         "equivalent": false,
         "weight": 0.5,
-        "details": "difference_seconds=14.704884"
+        "details": "difference_seconds=14.625722"
       }
     ],
     "metadata": {}

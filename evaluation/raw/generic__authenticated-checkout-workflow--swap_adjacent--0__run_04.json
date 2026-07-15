@@ -1,0 +1,133 @@
+{
+  "group": "generic_mutation",
+  "source_workflow_id": "authenticated-checkout-workflow",
+  "mutation_workflow_id": "authenticated-checkout-workflow--swap_adjacent--0",
+  "mutation_strategy": "swap_adjacent",
+  "run_index": 4,
+  "started_at": "2026-07-15T22:03:48.129232+00:00",
+  "execution_success": false,
+  "successful_steps": 3,
+  "failed_steps": 1,
+  "total_duration_seconds": 15.188955099962186,
+  "comparison_status": "divergent",
+  "divergence_score": 0.4666666666666667,
+  "anomaly_detected": true,
+  "execution": {
+    "workflow_id": "authenticated-checkout-workflow--swap_adjacent--0",
+    "workflow_name": "Authenticated Checkout Workflow [swap_adjacent]",
+    "success": false,
+    "successful_steps": 3,
+    "failed_steps": 1,
+    "total_duration_seconds": 15.188955099962186,
+    "started_at": "2026-07-15T22:03:49.087838+00:00",
+    "finished_at": "2026-07-15T22:04:04.278689+00:00",
+    "steps": [
+      {
+        "step_index": 0,
+        "operation_type": "login",
+        "label": "Authenticate Session",
+        "success": false,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/",
+        "duration_seconds": 15.006492199958302,
+        "error": "Locator.fill: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"input[name=\\\"email\\\"]\").first\n",
+        "metadata": {}
+      },
+      {
+        "step_index": 1,
+        "operation_type": "login",
+        "label": "Navigate to Login",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/login",
+        "duration_seconds": 0.031861199997365475,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 2,
+        "operation_type": "add_to_cart",
+        "label": "Add First Product",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/login",
+        "url_after": "http://127.0.0.1:5000/login",
+        "duration_seconds": 0.09320319996913895,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 3,
+        "operation_type": "checkout",
+        "label": "Checkout",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/login",
+        "url_after": "http://127.0.0.1:5000/login",
+        "duration_seconds": 0.05739850003737956,
+        "error": null,
+        "metadata": {}
+      }
+    ],
+    "metadata": {}
+  },
+  "comparison": {
+    "baseline_workflow_id": "authenticated-checkout-workflow",
+    "mutated_workflow_id": "authenticated-checkout-workflow--swap_adjacent--0",
+    "status": "divergent",
+    "divergence_score": 0.4666666666666667,
+    "divergent_signals": 2,
+    "equivalent_signals": 3,
+    "signals": [
+      {
+        "signal_name": "workflow_success",
+        "baseline_value": false,
+        "mutated_value": false,
+        "equivalent": true,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "failed_steps",
+        "baseline_value": 1,
+        "mutated_value": 1,
+        "equivalent": true,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "final_url",
+        "baseline_value": "http://127.0.0.1:5000/cart",
+        "mutated_value": "http://127.0.0.1:5000/login",
+        "equivalent": false,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "step_outcomes",
+        "baseline_value": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "mutated_value": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "equivalent": false,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "execution_duration",
+        "baseline_value": 15.531012399937026,
+        "mutated_value": 15.188955099962186,
+        "equivalent": true,
+        "weight": 0.5,
+        "details": "difference_seconds=0.342057"
+      }
+    ],
+    "metadata": {}
+  }
+}

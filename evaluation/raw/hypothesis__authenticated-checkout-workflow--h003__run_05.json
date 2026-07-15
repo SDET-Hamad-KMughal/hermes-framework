@@ -1,0 +1,155 @@
+{
+  "group": "hypothesis_mutation",
+  "source_workflow_id": "authenticated-checkout-workflow",
+  "hypothesis_id": "H003",
+  "hypothesis_title": "Checkout ordering dependency",
+  "hypothesis_category": "ordering",
+  "mutation_strategy": "swap_operations",
+  "expected_behavior": "reject",
+  "target_operation": "checkout",
+  "prerequisite_operation": "add_to_cart",
+  "confidence": 0.9,
+  "mutation_workflow_id": "authenticated-checkout-workflow--h003",
+  "run_index": 5,
+  "started_at": "2026-07-15T22:28:27.381768+00:00",
+  "execution_success": false,
+  "successful_steps": 3,
+  "failed_steps": 1,
+  "total_duration_seconds": 15.496064500010107,
+  "comparison_status": "equivalent",
+  "divergence_score": 0.0,
+  "anomaly_detected": false,
+  "execution": {
+    "workflow_id": "authenticated-checkout-workflow--h003",
+    "workflow_name": "Authenticated Checkout Workflow \u2014 Checkout ordering dependency",
+    "success": false,
+    "successful_steps": 3,
+    "failed_steps": 1,
+    "total_duration_seconds": 15.496064500010107,
+    "started_at": "2026-07-15T22:28:28.280476+00:00",
+    "finished_at": "2026-07-15T22:28:43.777721+00:00",
+    "steps": [
+      {
+        "step_index": 0,
+        "operation_type": "login",
+        "label": "Navigate to Login",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/login",
+        "duration_seconds": 0.05765240004984662,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 1,
+        "operation_type": "login",
+        "label": "Authenticate Session",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/login",
+        "url_after": "http://127.0.0.1:5000/",
+        "duration_seconds": 0.3376748999580741,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 2,
+        "operation_type": "checkout",
+        "label": "Checkout",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/cart",
+        "duration_seconds": 0.08386509999400005,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 3,
+        "operation_type": "add_to_cart",
+        "label": "Add First Product",
+        "success": false,
+        "url_before": "http://127.0.0.1:5000/cart",
+        "url_after": "http://127.0.0.1:5000/cart",
+        "duration_seconds": 15.016872100008186,
+        "error": "Locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"button[type=\\\"submit\\\"]\").first\n",
+        "metadata": {}
+      }
+    ],
+    "metadata": {}
+  },
+  "comparison": {
+    "baseline_workflow_id": "authenticated-checkout-workflow",
+    "mutated_workflow_id": "authenticated-checkout-workflow--h003",
+    "status": "equivalent",
+    "divergence_score": 0.0,
+    "divergent_signals": 0,
+    "equivalent_signals": 5,
+    "signals": [
+      {
+        "signal_name": "workflow_success",
+        "baseline_value": false,
+        "mutated_value": false,
+        "equivalent": true,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "failed_steps",
+        "baseline_value": 1,
+        "mutated_value": 1,
+        "equivalent": true,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "final_url",
+        "baseline_value": "http://127.0.0.1:5000/cart",
+        "mutated_value": "http://127.0.0.1:5000/cart",
+        "equivalent": true,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "step_outcomes",
+        "baseline_value": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "mutated_value": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "equivalent": true,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "execution_duration",
+        "baseline_value": 15.51103500003228,
+        "mutated_value": 15.496064500010107,
+        "equivalent": true,
+        "weight": 0.5,
+        "details": "difference_seconds=0.014971"
+      }
+    ],
+    "metadata": {}
+  },
+  "hypothesis": {
+    "hypothesis_id": "H003",
+    "title": "Checkout ordering dependency",
+    "description": "checkout before add_to_cart should be rejected.",
+    "category": "ordering",
+    "source_workflow_id": "authenticated-checkout-workflow",
+    "mutation_strategy": "swap_operations",
+    "expected_behavior": "reject",
+    "target_operation": "checkout",
+    "prerequisite_operation": "add_to_cart",
+    "confidence": 0.9,
+    "metadata": {
+      "template_id": "checkout-ordering"
+    }
+  }
+}

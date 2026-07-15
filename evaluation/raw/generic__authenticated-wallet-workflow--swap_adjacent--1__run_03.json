@@ -1,0 +1,120 @@
+{
+  "group": "generic_mutation",
+  "source_workflow_id": "authenticated-wallet-workflow",
+  "mutation_workflow_id": "authenticated-wallet-workflow--swap_adjacent--1",
+  "mutation_strategy": "swap_adjacent",
+  "run_index": 3,
+  "started_at": "2026-07-15T22:13:20.403312+00:00",
+  "execution_success": true,
+  "successful_steps": 3,
+  "failed_steps": 0,
+  "total_duration_seconds": 0.4686352999997325,
+  "comparison_status": "equivalent",
+  "divergence_score": 0.0,
+  "anomaly_detected": false,
+  "execution": {
+    "workflow_id": "authenticated-wallet-workflow--swap_adjacent--1",
+    "workflow_name": "Authenticated Wallet Reset Workflow [swap_adjacent]",
+    "success": true,
+    "successful_steps": 3,
+    "failed_steps": 0,
+    "total_duration_seconds": 0.4686352999997325,
+    "started_at": "2026-07-15T22:13:21.320986+00:00",
+    "finished_at": "2026-07-15T22:13:21.787422+00:00",
+    "steps": [
+      {
+        "step_index": 0,
+        "operation_type": "login",
+        "label": "Navigate to Login",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/login",
+        "duration_seconds": 0.0633691000402905,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 1,
+        "operation_type": "top_up_wallet",
+        "label": "Reset Wallet Balance",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/login",
+        "url_after": "http://127.0.0.1:5000/login?next=%2Ftopup",
+        "duration_seconds": 0.03490339999552816,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 2,
+        "operation_type": "login",
+        "label": "Authenticate Session",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/login?next=%2Ftopup",
+        "url_after": "http://127.0.0.1:5000/",
+        "duration_seconds": 0.37036279996391386,
+        "error": null,
+        "metadata": {}
+      }
+    ],
+    "metadata": {}
+  },
+  "comparison": {
+    "baseline_workflow_id": "authenticated-wallet-workflow",
+    "mutated_workflow_id": "authenticated-wallet-workflow--swap_adjacent--1",
+    "status": "equivalent",
+    "divergence_score": 0.0,
+    "divergent_signals": 0,
+    "equivalent_signals": 5,
+    "signals": [
+      {
+        "signal_name": "workflow_success",
+        "baseline_value": true,
+        "mutated_value": true,
+        "equivalent": true,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "failed_steps",
+        "baseline_value": 0,
+        "mutated_value": 0,
+        "equivalent": true,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "final_url",
+        "baseline_value": "http://127.0.0.1:5000/",
+        "mutated_value": "http://127.0.0.1:5000/",
+        "equivalent": true,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "step_outcomes",
+        "baseline_value": [
+          true,
+          true,
+          true
+        ],
+        "mutated_value": [
+          true,
+          true,
+          true
+        ],
+        "equivalent": true,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "execution_duration",
+        "baseline_value": 0.4933150000288151,
+        "mutated_value": 0.4686352999997325,
+        "equivalent": true,
+        "weight": 0.5,
+        "details": "difference_seconds=0.024680"
+      }
+    ],
+    "metadata": {}
+  }
+}

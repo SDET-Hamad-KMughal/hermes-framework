@@ -1,9 +1,9 @@
 group,mutation_strategy,record_count,successful_executions,execution_success_rate,anomaly_count,anomaly_rate,mean_divergence_score
-generic_mutation,duplicate_step,15,10,0.6666666666666666,6,0.4,0.39555555555555555
-generic_mutation,insert_logout,20,0,0.0,20,1.0,0.6666666666666666
-generic_mutation,reverse_workflow,4,4,1.0,0,0.0,0.2
-generic_mutation,skip_step,15,10,0.6666666666666666,12,0.8,0.5733333333333334
-generic_mutation,swap_adjacent,10,5,0.5,5,0.5,0.5533333333333333
-hypothesis_mutation,duplicate_operation,1,1,1.0,0,0.0,0.2
-hypothesis_mutation,remove_prerequisite,3,1,0.3333333333333333,3,1.0,0.8222222222222222
-hypothesis_mutation,swap_operations,1,0,0.0,1,1.0,1.0
+generic_mutation,duplicate_step,75,30,0.4,40,0.5333333333333333,0.4311111111111111
+generic_mutation,insert_logout,100,0,0.0,100,1.0,0.6
+generic_mutation,reverse_workflow,20,15,0.75,10,0.5,0.5666666666666667
+generic_mutation,skip_step,75,50,0.6666666666666666,65,0.8666666666666667,0.6053333333333333
+generic_mutation,swap_adjacent,50,15,0.3,35,0.7,0.5933333333333333
+hypothesis_mutation,duplicate_operation,5,5,1.0,0,0.0,0.2
+hypothesis_mutation,remove_prerequisite,15,5,0.3333333333333333,15,1.0,0.6444444444444444
+hypothesis_mutation,swap_operations,5,0,0.0,0,0.0,0.0

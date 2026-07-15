@@ -4,11 +4,11 @@
   "mutation_workflow_id": "login-workflow--insert_logout--2",
   "mutation_strategy": "insert_logout",
   "run_index": 1,
-  "started_at": "2026-07-15T20:02:55.618076+00:00",
+  "started_at": "2026-07-15T21:37:27.799319+00:00",
   "execution_success": false,
   "successful_steps": 2,
   "failed_steps": 1,
-  "total_duration_seconds": 0.26735009998083115,
+  "total_duration_seconds": 0.4457412000047043,
   "comparison_status": "divergent",
   "divergence_score": 0.6666666666666666,
   "anomaly_detected": true,
@@ -18,9 +18,9 @@
     "success": false,
     "successful_steps": 2,
     "failed_steps": 1,
-    "total_duration_seconds": 0.26735009998083115,
-    "started_at": "2026-07-15T20:02:56.145624+00:00",
-    "finished_at": "2026-07-15T20:02:56.413312+00:00",
+    "total_duration_seconds": 0.4457412000047043,
+    "started_at": "2026-07-15T21:37:28.623300+00:00",
+    "finished_at": "2026-07-15T21:37:29.068697+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -29,7 +29,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login",
-        "duration_seconds": 0.03924780001398176,
+        "duration_seconds": 0.053483499970752746,
         "error": null,
         "metadata": {}
       },
@@ -40,7 +40,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/login",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.22809230000711977,
+        "duration_seconds": 0.3922442000475712,
         "error": null,
         "metadata": {}
       },
@@ -51,7 +51,7 @@
         "success": false,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 9.999959729611874e-06,
+        "duration_seconds": 1.3499986380338669e-05,
         "error": "step requires either selector or target_state_id",
         "metadata": {}
       }
@@ -107,11 +107,11 @@
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.2605436000158079,
-        "mutated_value": 0.26735009998083115,
+        "baseline_value": 0.30307929997798055,
+        "mutated_value": 0.4457412000047043,
         "equivalent": true,
         "weight": 0.5,
-        "details": "difference_seconds=0.006806"
+        "details": "difference_seconds=0.142662"
       }
     ],
     "metadata": {}

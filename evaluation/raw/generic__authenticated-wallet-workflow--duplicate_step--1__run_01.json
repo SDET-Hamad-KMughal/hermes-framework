@@ -4,11 +4,11 @@
   "mutation_workflow_id": "authenticated-wallet-workflow--duplicate_step--1",
   "mutation_strategy": "duplicate_step",
   "run_index": 1,
-  "started_at": "2026-07-15T20:05:16.509627+00:00",
+  "started_at": "2026-07-15T22:10:37.698419+00:00",
   "execution_success": false,
   "successful_steps": 3,
   "failed_steps": 1,
-  "total_duration_seconds": 15.317895899934229,
+  "total_duration_seconds": 15.485546100011561,
   "comparison_status": "divergent",
   "divergence_score": 0.7333333333333333,
   "anomaly_detected": true,
@@ -18,9 +18,9 @@
     "success": false,
     "successful_steps": 3,
     "failed_steps": 1,
-    "total_duration_seconds": 15.317895899934229,
-    "started_at": "2026-07-15T20:05:17.042927+00:00",
-    "finished_at": "2026-07-15T20:05:32.365576+00:00",
+    "total_duration_seconds": 15.485546100011561,
+    "started_at": "2026-07-15T22:10:38.520777+00:00",
+    "finished_at": "2026-07-15T22:10:54.006452+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -29,7 +29,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login",
-        "duration_seconds": 0.045776299957651645,
+        "duration_seconds": 0.05959419999271631,
         "error": null,
         "metadata": {}
       },
@@ -40,7 +40,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/login",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.2390976999886334,
+        "duration_seconds": 0.34240060002775863,
         "error": null,
         "metadata": {}
       },
@@ -51,7 +51,7 @@
         "success": false,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 15.013436599983834,
+        "duration_seconds": 15.017847799987067,
         "error": "Locator.fill: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"input[name=\\\"email\\\"]\").first\n",
         "metadata": {}
       },
@@ -62,7 +62,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.01958530000410974,
+        "duration_seconds": 0.06570350000401959,
         "error": null,
         "metadata": {}
       }
@@ -120,11 +120,11 @@
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.3122112999553792,
-        "mutated_value": 15.317895899934229,
+        "baseline_value": 0.5104302000254393,
+        "mutated_value": 15.485546100011561,
         "equivalent": false,
         "weight": 0.5,
-        "details": "difference_seconds=15.005685"
+        "details": "difference_seconds=14.975116"
       }
     ],
     "metadata": {}

@@ -4,23 +4,23 @@
   "mutation_workflow_id": "authenticated-order-history-workflow--reverse_workflow--all",
   "mutation_strategy": "reverse_workflow",
   "run_index": 1,
-  "started_at": "2026-07-15T20:06:47.690460+00:00",
-  "execution_success": true,
-  "successful_steps": 3,
-  "failed_steps": 0,
-  "total_duration_seconds": 0.2955493999761529,
-  "comparison_status": "equivalent",
-  "divergence_score": 0.26666666666666666,
-  "anomaly_detected": false,
+  "started_at": "2026-07-15T22:17:40.952221+00:00",
+  "execution_success": false,
+  "successful_steps": 2,
+  "failed_steps": 1,
+  "total_duration_seconds": 15.140017899975646,
+  "comparison_status": "divergent",
+  "divergence_score": 1.0,
+  "anomaly_detected": true,
   "execution": {
     "workflow_id": "authenticated-order-history-workflow--reverse_workflow--all",
     "workflow_name": "Authenticated Order History Workflow [reverse_workflow]",
-    "success": true,
-    "successful_steps": 3,
-    "failed_steps": 0,
-    "total_duration_seconds": 0.2955493999761529,
-    "started_at": "2026-07-15T20:06:48.223813+00:00",
-    "finished_at": "2026-07-15T20:06:48.519587+00:00",
+    "success": false,
+    "successful_steps": 2,
+    "failed_steps": 1,
+    "total_duration_seconds": 15.140017899975646,
+    "started_at": "2026-07-15T22:17:41.858543+00:00",
+    "finished_at": "2026-07-15T22:17:57.005925+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -28,8 +28,8 @@
         "label": "View Order History",
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
-        "url_after": "http://127.0.0.1:5000/login?next=%2Forders",
-        "duration_seconds": 0.036164999997708946,
+        "url_after": "http://127.0.0.1:5000/orders",
+        "duration_seconds": 0.04783779999706894,
         "error": null,
         "metadata": {}
       },
@@ -37,11 +37,11 @@
         "step_index": 1,
         "operation_type": "login",
         "label": "Authenticate Session",
-        "success": true,
-        "url_before": "http://127.0.0.1:5000/login?next=%2Forders",
-        "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.241666299989447,
-        "error": null,
+        "success": false,
+        "url_before": "http://127.0.0.1:5000/orders",
+        "url_after": "http://127.0.0.1:5000/orders",
+        "duration_seconds": 15.01771619997453,
+        "error": "Locator.fill: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"input[name=\\\"email\\\"]\").first\n",
         "metadata": {}
       },
       {
@@ -49,9 +49,9 @@
         "operation_type": "login",
         "label": "Navigate to Login",
         "success": true,
-        "url_before": "http://127.0.0.1:5000/",
-        "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.017718099988996983,
+        "url_before": "http://127.0.0.1:5000/orders",
+        "url_after": "http://127.0.0.1:5000/login",
+        "duration_seconds": 0.0744639000040479,
         "error": null,
         "metadata": {}
       }
@@ -61,31 +61,31 @@
   "comparison": {
     "baseline_workflow_id": "authenticated-order-history-workflow",
     "mutated_workflow_id": "authenticated-order-history-workflow--reverse_workflow--all",
-    "status": "equivalent",
-    "divergence_score": 0.26666666666666666,
-    "divergent_signals": 1,
-    "equivalent_signals": 4,
+    "status": "divergent",
+    "divergence_score": 1.0,
+    "divergent_signals": 5,
+    "equivalent_signals": 0,
     "signals": [
       {
         "signal_name": "workflow_success",
         "baseline_value": true,
-        "mutated_value": true,
-        "equivalent": true,
+        "mutated_value": false,
+        "equivalent": false,
         "weight": 2.0,
         "details": null
       },
       {
         "signal_name": "failed_steps",
         "baseline_value": 0,
-        "mutated_value": 0,
-        "equivalent": true,
+        "mutated_value": 1,
+        "equivalent": false,
         "weight": 1.5,
         "details": null
       },
       {
         "signal_name": "final_url",
         "baseline_value": "http://127.0.0.1:5000/orders",
-        "mutated_value": "http://127.0.0.1:5000/",
+        "mutated_value": "http://127.0.0.1:5000/login",
         "equivalent": false,
         "weight": 2.0,
         "details": null
@@ -99,20 +99,20 @@
         ],
         "mutated_value": [
           true,
-          true,
+          false,
           true
         ],
-        "equivalent": true,
+        "equivalent": false,
         "weight": 1.5,
         "details": null
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.29778270004317164,
-        "mutated_value": 0.2955493999761529,
-        "equivalent": true,
+        "baseline_value": 0.4004487000638619,
+        "mutated_value": 15.140017899975646,
+        "equivalent": false,
         "weight": 0.5,
-        "details": "difference_seconds=0.002233"
+        "details": "difference_seconds=14.739569"
       }
     ],
     "metadata": {}

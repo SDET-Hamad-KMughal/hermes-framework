@@ -4,13 +4,13 @@
   "mutation_workflow_id": "authenticated-checkout-workflow--skip_step--0",
   "mutation_strategy": "skip_step",
   "run_index": 1,
-  "started_at": "2026-07-15T20:03:55.083995+00:00",
+  "started_at": "2026-07-15T21:48:13.013560+00:00",
   "execution_success": false,
   "successful_steps": 2,
   "failed_steps": 1,
-  "total_duration_seconds": 15.129668000037782,
+  "total_duration_seconds": 15.186469400068745,
   "comparison_status": "divergent",
-  "divergence_score": 1.0,
+  "divergence_score": 0.4666666666666667,
   "anomaly_detected": true,
   "execution": {
     "workflow_id": "authenticated-checkout-workflow--skip_step--0",
@@ -18,9 +18,9 @@
     "success": false,
     "successful_steps": 2,
     "failed_steps": 1,
-    "total_duration_seconds": 15.129668000037782,
-    "started_at": "2026-07-15T20:03:55.630999+00:00",
-    "finished_at": "2026-07-15T20:04:10.760216+00:00",
+    "total_duration_seconds": 15.186469400068745,
+    "started_at": "2026-07-15T21:48:13.990582+00:00",
+    "finished_at": "2026-07-15T21:48:29.172880+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -29,7 +29,7 @@
         "success": false,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 15.013370000000577,
+        "duration_seconds": 15.004274700011592,
         "error": "Locator.fill: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"input[name=\\\"email\\\"]\").first\n",
         "metadata": {}
       },
@@ -40,7 +40,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login?next=%2Fcart",
-        "duration_seconds": 0.05071570002473891,
+        "duration_seconds": 0.12659440003335476,
         "error": null,
         "metadata": {}
       },
@@ -51,7 +51,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/login?next=%2Fcart",
         "url_after": "http://127.0.0.1:5000/login?next=%2Fcart",
-        "duration_seconds": 0.06558230001246557,
+        "duration_seconds": 0.0556003000237979,
         "error": null,
         "metadata": {}
       }
@@ -62,23 +62,23 @@
     "baseline_workflow_id": "authenticated-checkout-workflow",
     "mutated_workflow_id": "authenticated-checkout-workflow--skip_step--0",
     "status": "divergent",
-    "divergence_score": 1.0,
-    "divergent_signals": 5,
-    "equivalent_signals": 0,
+    "divergence_score": 0.4666666666666667,
+    "divergent_signals": 2,
+    "equivalent_signals": 3,
     "signals": [
       {
         "signal_name": "workflow_success",
-        "baseline_value": true,
+        "baseline_value": false,
         "mutated_value": false,
-        "equivalent": false,
+        "equivalent": true,
         "weight": 2.0,
         "details": null
       },
       {
         "signal_name": "failed_steps",
-        "baseline_value": 0,
+        "baseline_value": 1,
         "mutated_value": 1,
-        "equivalent": false,
+        "equivalent": true,
         "weight": 1.5,
         "details": null
       },
@@ -96,7 +96,7 @@
           true,
           true,
           true,
-          true
+          false
         ],
         "mutated_value": [
           false,
@@ -109,11 +109,11 @@
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.42251510004280135,
-        "mutated_value": 15.129668000037782,
-        "equivalent": false,
+        "baseline_value": 15.39436190010747,
+        "mutated_value": 15.186469400068745,
+        "equivalent": true,
         "weight": 0.5,
-        "details": "difference_seconds=14.707153"
+        "details": "difference_seconds=0.207893"
       }
     ],
     "metadata": {}

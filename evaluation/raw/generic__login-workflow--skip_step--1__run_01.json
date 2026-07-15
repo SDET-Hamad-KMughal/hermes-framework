@@ -4,11 +4,11 @@
   "mutation_workflow_id": "login-workflow--skip_step--1",
   "mutation_strategy": "skip_step",
   "run_index": 1,
-  "started_at": "2026-07-15T20:02:20.814875+00:00",
+  "started_at": "2026-07-15T21:36:49.496798+00:00",
   "execution_success": true,
   "successful_steps": 1,
   "failed_steps": 0,
-  "total_duration_seconds": 0.031741200014948845,
+  "total_duration_seconds": 0.0518887999933213,
   "comparison_status": "divergent",
   "divergence_score": 0.4666666666666667,
   "anomaly_detected": true,
@@ -18,9 +18,9 @@
     "success": true,
     "successful_steps": 1,
     "failed_steps": 0,
-    "total_duration_seconds": 0.031741200014948845,
-    "started_at": "2026-07-15T20:02:21.341458+00:00",
-    "finished_at": "2026-07-15T20:02:21.374025+00:00",
+    "total_duration_seconds": 0.0518887999933213,
+    "started_at": "2026-07-15T21:36:50.483746+00:00",
+    "finished_at": "2026-07-15T21:36:50.536266+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -29,7 +29,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login",
-        "duration_seconds": 0.031741200014948845,
+        "duration_seconds": 0.0518887999933213,
         "error": null,
         "metadata": {}
       }
@@ -83,11 +83,11 @@
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.2605436000158079,
-        "mutated_value": 0.031741200014948845,
+        "baseline_value": 0.30307929997798055,
+        "mutated_value": 0.0518887999933213,
         "equivalent": true,
         "weight": 0.5,
-        "details": "difference_seconds=0.228802"
+        "details": "difference_seconds=0.251190"
       }
     ],
     "metadata": {}

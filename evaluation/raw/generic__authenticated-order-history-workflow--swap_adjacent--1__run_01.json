@@ -4,23 +4,23 @@
   "mutation_workflow_id": "authenticated-order-history-workflow--swap_adjacent--1",
   "mutation_strategy": "swap_adjacent",
   "run_index": 1,
-  "started_at": "2026-07-15T20:06:46.805404+00:00",
-  "execution_success": true,
-  "successful_steps": 3,
-  "failed_steps": 0,
-  "total_duration_seconds": 0.27615020010853186,
-  "comparison_status": "equivalent",
-  "divergence_score": 0.26666666666666666,
-  "anomaly_detected": false,
+  "started_at": "2026-07-15T22:17:24.815995+00:00",
+  "execution_success": false,
+  "successful_steps": 2,
+  "failed_steps": 1,
+  "total_duration_seconds": 15.0829381000367,
+  "comparison_status": "divergent",
+  "divergence_score": 0.7333333333333333,
+  "anomaly_detected": true,
   "execution": {
     "workflow_id": "authenticated-order-history-workflow--swap_adjacent--1",
     "workflow_name": "Authenticated Order History Workflow [swap_adjacent]",
-    "success": true,
-    "successful_steps": 3,
-    "failed_steps": 0,
-    "total_duration_seconds": 0.27615020010853186,
-    "started_at": "2026-07-15T20:06:47.338486+00:00",
-    "finished_at": "2026-07-15T20:06:47.614665+00:00",
+    "success": false,
+    "successful_steps": 2,
+    "failed_steps": 1,
+    "total_duration_seconds": 15.0829381000367,
+    "started_at": "2026-07-15T22:17:25.748385+00:00",
+    "finished_at": "2026-07-15T22:17:40.828650+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -29,7 +29,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login",
-        "duration_seconds": 0.03130670002428815,
+        "duration_seconds": 0.05090619996190071,
         "error": null,
         "metadata": {}
       },
@@ -39,8 +39,8 @@
         "label": "View Order History",
         "success": true,
         "url_before": "http://127.0.0.1:5000/login",
-        "url_after": "http://127.0.0.1:5000/login?next=%2Forders",
-        "duration_seconds": 0.016021300049033016,
+        "url_after": "http://127.0.0.1:5000/orders",
+        "duration_seconds": 0.02185990003636107,
         "error": null,
         "metadata": {}
       },
@@ -48,11 +48,11 @@
         "step_index": 2,
         "operation_type": "login",
         "label": "Authenticate Session",
-        "success": true,
-        "url_before": "http://127.0.0.1:5000/login?next=%2Forders",
-        "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.2288222000352107,
-        "error": null,
+        "success": false,
+        "url_before": "http://127.0.0.1:5000/orders",
+        "url_after": "http://127.0.0.1:5000/orders",
+        "duration_seconds": 15.010172000038438,
+        "error": "Locator.fill: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"input[name=\\\"email\\\"]\").first\n",
         "metadata": {}
       }
     ],
@@ -61,32 +61,32 @@
   "comparison": {
     "baseline_workflow_id": "authenticated-order-history-workflow",
     "mutated_workflow_id": "authenticated-order-history-workflow--swap_adjacent--1",
-    "status": "equivalent",
-    "divergence_score": 0.26666666666666666,
-    "divergent_signals": 1,
-    "equivalent_signals": 4,
+    "status": "divergent",
+    "divergence_score": 0.7333333333333333,
+    "divergent_signals": 4,
+    "equivalent_signals": 1,
     "signals": [
       {
         "signal_name": "workflow_success",
         "baseline_value": true,
-        "mutated_value": true,
-        "equivalent": true,
+        "mutated_value": false,
+        "equivalent": false,
         "weight": 2.0,
         "details": null
       },
       {
         "signal_name": "failed_steps",
         "baseline_value": 0,
-        "mutated_value": 0,
-        "equivalent": true,
+        "mutated_value": 1,
+        "equivalent": false,
         "weight": 1.5,
         "details": null
       },
       {
         "signal_name": "final_url",
         "baseline_value": "http://127.0.0.1:5000/orders",
-        "mutated_value": "http://127.0.0.1:5000/",
-        "equivalent": false,
+        "mutated_value": "http://127.0.0.1:5000/orders",
+        "equivalent": true,
         "weight": 2.0,
         "details": null
       },
@@ -100,19 +100,19 @@
         "mutated_value": [
           true,
           true,
-          true
+          false
         ],
-        "equivalent": true,
+        "equivalent": false,
         "weight": 1.5,
         "details": null
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.29778270004317164,
-        "mutated_value": 0.27615020010853186,
-        "equivalent": true,
+        "baseline_value": 0.4004487000638619,
+        "mutated_value": 15.0829381000367,
+        "equivalent": false,
         "weight": 0.5,
-        "details": "difference_seconds=0.021632"
+        "details": "difference_seconds=14.682489"
       }
     ],
     "metadata": {}

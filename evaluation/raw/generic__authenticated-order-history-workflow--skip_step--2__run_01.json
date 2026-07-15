@@ -4,11 +4,11 @@
   "mutation_workflow_id": "authenticated-order-history-workflow--skip_step--2",
   "mutation_strategy": "skip_step",
   "run_index": 1,
-  "started_at": "2026-07-15T20:06:12.223128+00:00",
+  "started_at": "2026-07-15T22:16:47.749680+00:00",
   "execution_success": true,
   "successful_steps": 2,
   "failed_steps": 0,
-  "total_duration_seconds": 0.28895750001538545,
+  "total_duration_seconds": 0.42957650002790615,
   "comparison_status": "divergent",
   "divergence_score": 0.4666666666666667,
   "anomaly_detected": true,
@@ -18,9 +18,9 @@
     "success": true,
     "successful_steps": 2,
     "failed_steps": 0,
-    "total_duration_seconds": 0.28895750001538545,
-    "started_at": "2026-07-15T20:06:12.806915+00:00",
-    "finished_at": "2026-07-15T20:06:13.096225+00:00",
+    "total_duration_seconds": 0.42957650002790615,
+    "started_at": "2026-07-15T22:16:48.683515+00:00",
+    "finished_at": "2026-07-15T22:16:49.121728+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -29,7 +29,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login",
-        "duration_seconds": 0.041282700025476515,
+        "duration_seconds": 0.04981200001202524,
         "error": null,
         "metadata": {}
       },
@@ -40,7 +40,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/login",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.24767479998990893,
+        "duration_seconds": 0.3797645000158809,
         "error": null,
         "metadata": {}
       }
@@ -96,11 +96,11 @@
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.29778270004317164,
-        "mutated_value": 0.28895750001538545,
+        "baseline_value": 0.4004487000638619,
+        "mutated_value": 0.42957650002790615,
         "equivalent": true,
         "weight": 0.5,
-        "details": "difference_seconds=0.008825"
+        "details": "difference_seconds=0.029128"
       }
     ],
     "metadata": {}

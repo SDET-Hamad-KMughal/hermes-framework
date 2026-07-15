@@ -1,0 +1,145 @@
+{
+  "group": "generic_mutation",
+  "source_workflow_id": "authenticated-checkout-workflow",
+  "mutation_workflow_id": "authenticated-checkout-workflow--duplicate_step--2",
+  "mutation_strategy": "duplicate_step",
+  "run_index": 3,
+  "started_at": "2026-07-15T21:58:17.381684+00:00",
+  "execution_success": false,
+  "successful_steps": 3,
+  "failed_steps": 2,
+  "total_duration_seconds": 30.385383599903435,
+  "comparison_status": "divergent",
+  "divergence_score": 0.4666666666666667,
+  "anomaly_detected": true,
+  "execution": {
+    "workflow_id": "authenticated-checkout-workflow--duplicate_step--2",
+    "workflow_name": "Authenticated Checkout Workflow [duplicate_step]",
+    "success": false,
+    "successful_steps": 3,
+    "failed_steps": 2,
+    "total_duration_seconds": 30.385383599903435,
+    "started_at": "2026-07-15T21:58:17.949635+00:00",
+    "finished_at": "2026-07-15T21:58:48.337779+00:00",
+    "steps": [
+      {
+        "step_index": 0,
+        "operation_type": "login",
+        "label": "Navigate to Login",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/login",
+        "duration_seconds": 0.04549250000854954,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 1,
+        "operation_type": "login",
+        "label": "Authenticate Session",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/login",
+        "url_after": "http://127.0.0.1:5000/",
+        "duration_seconds": 0.2455754999537021,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 2,
+        "operation_type": "add_to_cart",
+        "label": "Add First Product",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/cart",
+        "duration_seconds": 0.06671739998273551,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 3,
+        "operation_type": "add_to_cart",
+        "label": "Add First Product",
+        "success": false,
+        "url_before": "http://127.0.0.1:5000/cart",
+        "url_after": "http://127.0.0.1:5000/cart",
+        "duration_seconds": 15.005252600007225,
+        "error": "Locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"button[type=\\\"submit\\\"]\").first\n",
+        "metadata": {}
+      },
+      {
+        "step_index": 4,
+        "operation_type": "checkout",
+        "label": "Checkout",
+        "success": false,
+        "url_before": "http://127.0.0.1:5000/cart",
+        "url_after": "http://127.0.0.1:5000/cart",
+        "duration_seconds": 15.022345599951223,
+        "error": "Locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator(\"button[type=\\\"submit\\\"]\").first\n",
+        "metadata": {}
+      }
+    ],
+    "metadata": {}
+  },
+  "comparison": {
+    "baseline_workflow_id": "authenticated-checkout-workflow",
+    "mutated_workflow_id": "authenticated-checkout-workflow--duplicate_step--2",
+    "status": "divergent",
+    "divergence_score": 0.4666666666666667,
+    "divergent_signals": 3,
+    "equivalent_signals": 2,
+    "signals": [
+      {
+        "signal_name": "workflow_success",
+        "baseline_value": false,
+        "mutated_value": false,
+        "equivalent": true,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "failed_steps",
+        "baseline_value": 1,
+        "mutated_value": 2,
+        "equivalent": false,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "final_url",
+        "baseline_value": "http://127.0.0.1:5000/cart",
+        "mutated_value": "http://127.0.0.1:5000/cart",
+        "equivalent": true,
+        "weight": 2.0,
+        "details": null
+      },
+      {
+        "signal_name": "step_outcomes",
+        "baseline_value": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "mutated_value": [
+          true,
+          true,
+          true,
+          false,
+          false
+        ],
+        "equivalent": false,
+        "weight": 1.5,
+        "details": null
+      },
+      {
+        "signal_name": "execution_duration",
+        "baseline_value": 15.551671700028237,
+        "mutated_value": 30.385383599903435,
+        "equivalent": false,
+        "weight": 0.5,
+        "details": "difference_seconds=14.833712"
+      }
+    ],
+    "metadata": {}
+  }
+}

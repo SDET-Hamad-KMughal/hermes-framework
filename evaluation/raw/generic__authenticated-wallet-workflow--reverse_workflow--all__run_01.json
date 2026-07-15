@@ -4,11 +4,11 @@
   "mutation_workflow_id": "authenticated-wallet-workflow--reverse_workflow--all",
   "mutation_strategy": "reverse_workflow",
   "run_index": 1,
-  "started_at": "2026-07-15T20:05:50.052971+00:00",
+  "started_at": "2026-07-15T22:11:13.530914+00:00",
   "execution_success": true,
   "successful_steps": 3,
   "failed_steps": 0,
-  "total_duration_seconds": 0.3219995000399649,
+  "total_duration_seconds": 0.420795000041835,
   "comparison_status": "equivalent",
   "divergence_score": 0.0,
   "anomaly_detected": false,
@@ -18,9 +18,9 @@
     "success": true,
     "successful_steps": 3,
     "failed_steps": 0,
-    "total_duration_seconds": 0.3219995000399649,
-    "started_at": "2026-07-15T20:05:50.639893+00:00",
-    "finished_at": "2026-07-15T20:05:50.963495+00:00",
+    "total_duration_seconds": 0.420795000041835,
+    "started_at": "2026-07-15T22:11:14.485645+00:00",
+    "finished_at": "2026-07-15T22:11:14.902525+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -29,7 +29,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login?next=%2Ftopup",
-        "duration_seconds": 0.05597370001487434,
+        "duration_seconds": 0.04442759999074042,
         "error": null,
         "metadata": {}
       },
@@ -40,7 +40,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/login?next=%2Ftopup",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.24313379998784512,
+        "duration_seconds": 0.3448977000080049,
         "error": null,
         "metadata": {}
       },
@@ -51,7 +51,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.022892000037245452,
+        "duration_seconds": 0.03146970004308969,
         "error": null,
         "metadata": {}
       }
@@ -108,11 +108,11 @@
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.3122112999553792,
-        "mutated_value": 0.3219995000399649,
+        "baseline_value": 0.5104302000254393,
+        "mutated_value": 0.420795000041835,
         "equivalent": true,
         "weight": 0.5,
-        "details": "difference_seconds=0.009788"
+        "details": "difference_seconds=0.089635"
       }
     ],
     "metadata": {}

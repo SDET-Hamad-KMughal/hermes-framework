@@ -3,20 +3,20 @@
   "workflow_id": "authenticated-wallet-workflow",
   "workflow_name": "Authenticated Wallet Reset Workflow",
   "run_index": 1,
-  "started_at": "2026-07-15T20:02:02.369396+00:00",
+  "started_at": "2026-07-15T21:36:19.648246+00:00",
   "success": true,
   "successful_steps": 3,
   "failed_steps": 0,
-  "total_duration_seconds": 0.31511719996342435,
+  "total_duration_seconds": 0.4776370999752544,
   "execution": {
     "workflow_id": "authenticated-wallet-workflow",
     "workflow_name": "Authenticated Wallet Reset Workflow",
     "success": true,
     "successful_steps": 3,
     "failed_steps": 0,
-    "total_duration_seconds": 0.31511719996342435,
-    "started_at": "2026-07-15T20:02:02.902055+00:00",
-    "finished_at": "2026-07-15T20:02:03.217406+00:00",
+    "total_duration_seconds": 0.4776370999752544,
+    "started_at": "2026-07-15T21:36:20.656849+00:00",
+    "finished_at": "2026-07-15T21:36:21.136014+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -25,7 +25,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login",
-        "duration_seconds": 0.03977909998502582,
+        "duration_seconds": 0.024371299950871617,
         "error": null,
         "metadata": {}
       },
@@ -36,7 +36,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/login",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.24344659998314455,
+        "duration_seconds": 0.4005856000003405,
         "error": null,
         "metadata": {}
       },
@@ -47,7 +47,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.03189149999525398,
+        "duration_seconds": 0.05268020002404228,
         "error": null,
         "metadata": {}
       }

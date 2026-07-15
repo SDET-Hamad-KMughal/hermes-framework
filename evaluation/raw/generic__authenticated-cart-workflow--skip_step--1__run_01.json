@@ -4,11 +4,11 @@
   "mutation_workflow_id": "authenticated-cart-workflow--skip_step--1",
   "mutation_strategy": "skip_step",
   "run_index": 1,
-  "started_at": "2026-07-15T20:03:13.120554+00:00",
+  "started_at": "2026-07-15T21:41:34.103630+00:00",
   "execution_success": true,
   "successful_steps": 2,
   "failed_steps": 0,
-  "total_duration_seconds": 0.0900745999533683,
+  "total_duration_seconds": 0.1444161999388598,
   "comparison_status": "divergent",
   "divergence_score": 0.4666666666666667,
   "anomaly_detected": true,
@@ -18,9 +18,9 @@
     "success": true,
     "successful_steps": 2,
     "failed_steps": 0,
-    "total_duration_seconds": 0.0900745999533683,
-    "started_at": "2026-07-15T20:03:13.657205+00:00",
-    "finished_at": "2026-07-15T20:03:13.746900+00:00",
+    "total_duration_seconds": 0.1444161999388598,
+    "started_at": "2026-07-15T21:41:35.065866+00:00",
+    "finished_at": "2026-07-15T21:41:35.212031+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -29,7 +29,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login",
-        "duration_seconds": 0.029900599969550967,
+        "duration_seconds": 0.04868719994556159,
         "error": null,
         "metadata": {}
       },
@@ -40,7 +40,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/login",
         "url_after": "http://127.0.0.1:5000/login",
-        "duration_seconds": 0.06017399998381734,
+        "duration_seconds": 0.0957289999932982,
         "error": null,
         "metadata": {}
       }
@@ -96,11 +96,11 @@
       },
       {
         "signal_name": "execution_duration",
-        "baseline_value": 0.37636870000278577,
-        "mutated_value": 0.0900745999533683,
+        "baseline_value": 0.5028026000363752,
+        "mutated_value": 0.1444161999388598,
         "equivalent": true,
         "weight": 0.5,
-        "details": "difference_seconds=0.286294"
+        "details": "difference_seconds=0.358386"
       }
     ],
     "metadata": {}

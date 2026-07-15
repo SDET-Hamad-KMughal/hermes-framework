@@ -3,20 +3,20 @@
   "workflow_id": "login-workflow",
   "workflow_name": "Authenticated Login Workflow",
   "run_index": 1,
-  "started_at": "2026-07-15T20:01:59.194828+00:00",
+  "started_at": "2026-07-15T21:34:43.892622+00:00",
   "success": true,
   "successful_steps": 2,
   "failed_steps": 0,
-  "total_duration_seconds": 0.3121804000111297,
+  "total_duration_seconds": 0.4323399999993853,
   "execution": {
     "workflow_id": "login-workflow",
     "workflow_name": "Authenticated Login Workflow",
     "success": true,
     "successful_steps": 2,
     "failed_steps": 0,
-    "total_duration_seconds": 0.3121804000111297,
-    "started_at": "2026-07-15T20:01:59.847161+00:00",
-    "finished_at": "2026-07-15T20:02:00.159126+00:00",
+    "total_duration_seconds": 0.4323399999993853,
+    "started_at": "2026-07-15T21:34:45.128865+00:00",
+    "finished_at": "2026-07-15T21:34:45.562096+00:00",
     "steps": [
       {
         "step_index": 0,
@@ -25,7 +25,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/",
         "url_after": "http://127.0.0.1:5000/login",
-        "duration_seconds": 0.05879019998246804,
+        "duration_seconds": 0.038023000000976026,
         "error": null,
         "metadata": {}
       },
@@ -36,7 +36,7 @@
         "success": true,
         "url_before": "http://127.0.0.1:5000/login",
         "url_after": "http://127.0.0.1:5000/",
-        "duration_seconds": 0.25339020002866164,
+        "duration_seconds": 0.3943169999984093,
         "error": null,
         "metadata": {}
       }

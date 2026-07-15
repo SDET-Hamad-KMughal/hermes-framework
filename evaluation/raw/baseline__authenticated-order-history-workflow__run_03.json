@@ -1,0 +1,57 @@
+{
+  "group": "baseline",
+  "workflow_id": "authenticated-order-history-workflow",
+  "workflow_name": "Authenticated Order History Workflow",
+  "run_index": 3,
+  "started_at": "2026-07-15T21:36:29.779627+00:00",
+  "success": true,
+  "successful_steps": 3,
+  "failed_steps": 0,
+  "total_duration_seconds": 0.31143229990266263,
+  "execution": {
+    "workflow_id": "authenticated-order-history-workflow",
+    "workflow_name": "Authenticated Order History Workflow",
+    "success": true,
+    "successful_steps": 3,
+    "failed_steps": 0,
+    "total_duration_seconds": 0.31143229990266263,
+    "started_at": "2026-07-15T21:36:30.576120+00:00",
+    "finished_at": "2026-07-15T21:36:30.889002+00:00",
+    "steps": [
+      {
+        "step_index": 0,
+        "operation_type": "login",
+        "label": "Navigate to Login",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/login",
+        "duration_seconds": 0.013035799958743155,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 1,
+        "operation_type": "login",
+        "label": "Authenticate Session",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/login",
+        "url_after": "http://127.0.0.1:5000/",
+        "duration_seconds": 0.283556199981831,
+        "error": null,
+        "metadata": {}
+      },
+      {
+        "step_index": 2,
+        "operation_type": "view_orders",
+        "label": "View Order History",
+        "success": true,
+        "url_before": "http://127.0.0.1:5000/",
+        "url_after": "http://127.0.0.1:5000/orders",
+        "duration_seconds": 0.014840299962088466,
+        "error": null,
+        "metadata": {}
+      }
+    ],
+    "metadata": {}
+  }
+}

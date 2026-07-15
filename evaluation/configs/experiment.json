@@ -18,7 +18,7 @@
   "reset_browser_state": true,
   "headless": true,
   "comparator": {
-    "divergence_threshold": 0.30,
+    "divergence_threshold": 0.3,
     "duration_tolerance_seconds": 1.0
   },
   "outputs": {
