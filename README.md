@@ -1577,3 +1577,284 @@ The resulting framework provides a foundation for future research in:
 - Autonomous Security Evaluation
 
 ---
+---
+
+# HERMES-Bench
+
+HERMES-Bench is the reference benchmark distributed with HERMES.
+
+It was developed specifically for evaluating **stateful workflow fuzzing** techniques rather than traditional request-level fuzzers.
+
+Unlike conventional web testing benchmarks that primarily evaluate page navigation or input validation, HERMES-Bench models realistic business workflows with persistent application state.
+
+---
+
+# Design Goals
+
+HERMES-Bench was designed according to the following principles.
+
+- Stateful workflow execution
+- Authentication-aware interactions
+- Persistent database state
+- Business logic dependencies
+- Reproducible experiments
+- Deterministic execution
+- Ground-truth anomaly validation
+
+These properties enable controlled scientific evaluation of workflow mutation strategies.
+
+---
+
+# Benchmark Architecture
+
+The benchmark implements a simplified e-commerce platform.
+
+```
+                User
+                  │
+                  ▼
+             Authentication
+                  │
+                  ▼
+            Product Catalog
+                  │
+                  ▼
+             Shopping Cart
+                  │
+                  ▼
+               Checkout
+                  │
+                  ▼
+            Order History
+```
+
+Additional functionality includes:
+
+- Wallet Top-up
+- Administrative Monitoring
+- Session Management
+- Database Persistence
+
+---
+
+# Supported Business Operations
+
+| Operation | Description |
+|-----------|-------------|
+| Register | Create a user account |
+| Login | Authenticate a registered user |
+| Logout | Terminate authenticated session |
+| Browse Products | View available products |
+| View Product | Display product details |
+| Add to Cart | Add products to the shopping cart |
+| Wallet Top-up | Increase available balance |
+| Checkout | Purchase items in the cart |
+| View Orders | Display completed purchases |
+
+These operations are automatically discovered and transformed into semantic workflows by HERMES.
+
+---
+
+# Seeded Business Logic Anomalies
+
+HERMES-Bench contains controlled anomalies for validating workflow mutation techniques.
+
+Each anomaly can be enabled independently using environment variables.
+
+| Identifier | Description |
+|------------|-------------|
+| GT001 | Checkout without authentication |
+| GT002 | Duplicate wallet top-up |
+| GT003 | Order history without authentication |
+
+These anomalies serve as ground truth for evaluation.
+
+---
+
+# Ground Truth Evaluation
+
+Ground-truth validation measures whether HERMES successfully detects known anomalies.
+
+The framework reports:
+
+- True Positives
+- False Positives
+- False Negatives
+- True Negatives
+
+and derives:
+
+- Precision
+- Recall
+- F1-score
+- Accuracy
+
+This enables quantitative evaluation of workflow mutation effectiveness.
+
+---
+
+# Running HERMES-Bench
+
+Clone the benchmark repository.
+
+```bash
+git clone https://github.com/SDET-Hamad-KMughal/hermes-bench.git
+
+cd hermes-bench
+```
+
+Create the virtual environment.
+
+```bash
+python -m venv venv
+```
+
+Activate it.
+
+Windows
+
+```bash
+venv\Scripts\activate
+```
+
+Linux
+
+```bash
+source venv/bin/activate
+```
+
+Install dependencies.
+
+```bash
+pip install -r requirements.txt
+```
+
+Start the benchmark.
+
+```bash
+python run.py
+```
+
+The benchmark is available at
+
+```
+http://127.0.0.1:5000
+```
+
+---
+
+# Enabling Seeded Anomalies
+
+Seeded anomalies are disabled by default.
+
+To enable them:
+
+```bash
+export HERMES_BUG_CHECKOUT_WITHOUT_AUTH=1
+export HERMES_BUG_DUPLICATE_TOPUP=1
+export HERMES_BUG_ORDERS_WITHOUT_AUTH=1
+
+python run.py
+```
+
+Each anomaly can be enabled independently for controlled experimentation.
+
+---
+
+# Reproducing the Evaluation
+
+Execute the complete workflow evaluation.
+
+```bash
+python scripts/run_scientific_evaluation.py \
+    --config evaluation/configs/experiment.json
+```
+
+Generate aggregated metrics.
+
+```bash
+python scripts/aggregate_evaluation.py \
+    --raw-dir evaluation/raw \
+    --output evaluation/aggregated/evaluation_metrics.json
+```
+
+Evaluate ground truth.
+
+```bash
+python scripts/evaluate_ground_truth.py \
+    --ground-truth evaluation/ground_truth/hermes_bench.json \
+    --raw-dir evaluation/raw \
+    --output evaluation/aggregated/ground_truth_metrics.json
+```
+
+Generate publication tables.
+
+```bash
+python scripts/generate_evaluation_tables.py \
+    --raw-dir evaluation/raw \
+    --summary evaluation/aggregated/evaluation_metrics.json \
+    --output-dir evaluation/tables
+```
+
+Generate LaTeX tables.
+
+```bash
+python scripts/generate_tables.py \
+    --input-dir evaluation/tables \
+    --output-dir evaluation/tables/latex
+```
+
+Generate publication figures.
+
+```bash
+python scripts/generate_evaluation_figures.py \
+    --input-dir evaluation/tables \
+    --output-dir evaluation/figures
+```
+
+---
+
+# Produced Artifacts
+
+Running the complete pipeline automatically generates:
+
+```
+evaluation/
+│
+├── raw/
+├── aggregated/
+├── tables/
+│   ├── csv/
+│   └── latex/
+├── figures/
+└── archive/
+```
+
+No manual processing is required.
+
+---
+
+# Validation
+
+The implementation includes a comprehensive automated test suite.
+
+Run:
+
+```bash
+pytest -q
+```
+
+The framework verifies:
+
+- Workflow generation
+- Mutation engine
+- State graph
+- Semantic discovery
+- Execution engine
+- Comparator
+- Evaluation pipeline
+- Ground-truth validation
+
+This ensures reproducibility before every experiment.
+
+---
