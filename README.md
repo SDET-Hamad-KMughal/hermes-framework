@@ -21,9 +21,9 @@
 
 HERMES (**Hypothesis-driven Exploration through Reasoning for Modeling and Executing Semantic Workflows**) is an autonomous framework for **stateful web workflow fuzzing**.
 
-Unlike conventional web fuzzers that primarily mutate requests, parameters, or payloads, HERMES discovers semantic workflows, constructs workflow state graphs, generates workflow-context mutations, executes mutated workflows automatically, and compares behavioral outcomes to identify state-dependent business logic anomalies.
+Unlike conventional web fuzzers that primarily mutate HTTP requests, parameters, or payloads, HERMES discovers semantic workflows, constructs workflow state graphs, generates workflow-context mutations, executes mutated workflows automatically, and compares behavioral outcomes to identify state-dependent business logic anomalies.
 
-The framework introduces **workflow-context mutation** as a complementary fuzzing strategy for evaluating stateful web applications whose behavior depends on execution history rather than isolated requests.
+Instead of treating individual requests as the fuzzing target, HERMES treats **the complete workflow** as the primary testing unit, enabling systematic exploration of business logic that depends on execution history.
 
 ---
 
@@ -32,16 +32,16 @@ The framework introduces **workflow-context mutation** as a complementary fuzzin
 | Metric | Value |
 |---------|------:|
 | Programming Language | Python 3.12+ |
-| Framework Status | Complete |
+| Framework | HERMES |
 | Benchmark | HERMES-Bench |
-| Automated Workflow Executions | 370 |
+| Workflow Executions | 370 |
 | License | MIT |
 
 ---
 
 # Motivation
 
-Modern web applications rely heavily on application state.
+Modern web applications maintain complex application state across multiple user interactions.
 
 Examples include:
 
@@ -50,26 +50,25 @@ Examples include:
 - Wallet balances
 - Checkout workflows
 - Order history
-- Session history
 - Permission chains
-- Business logic dependencies
+- Session history
 
-Traditional web fuzzers mainly mutate:
+Traditional web fuzzers primarily mutate:
 
 - HTTP requests
 - Parameters
-- Payloads
 - URLs
+- Input payloads
 
-While effective for input validation, these techniques often overlook faults that emerge only after specific workflow histories.
+Although effective for input validation, these techniques frequently overlook faults that emerge only after specific workflow histories.
 
-HERMES addresses this limitation by treating **the workflow itself as the fuzzing target**, enabling systematic exploration of state-dependent behaviors.
+HERMES addresses this limitation by introducing **workflow-context mutation**, allowing systematic exploration of state-dependent business logic.
 
 ---
 
 # Research Contributions
 
-HERMES provides the following capabilities:
+The framework provides:
 
 - Automatic workflow discovery
 - Stateful graph construction
@@ -81,21 +80,19 @@ HERMES provides the following capabilities:
 - Automated Playwright execution
 - Behavioral comparison
 - Scientific evaluation pipeline
-- Reproducible experimental results
+- Reproducible experimentation
 
 ---
 
 # Framework Architecture
 
-> Replace the filename below with your actual architecture figure.
-
-```markdown
 ![HERMES Framework Architecture](docs/figures/fig1_architecture.png)
-```
 
-The framework follows a modular pipeline consisting of:
+HERMES follows a modular workflow fuzzing pipeline that automatically discovers application workflows, constructs workflow state graphs, generates workflow-context mutations, executes mutated workflows, and compares behavioral outcomes.
 
-```
+The framework consists of the following modules:
+
+```text
 Crawler
     │
     ▼
@@ -123,7 +120,7 @@ Behavior Comparator
 Scientific Evaluation
 ```
 
-Each component is modular, independently testable, and designed to facilitate future research extensions.
+Each component is independently testable and designed to facilitate future research extensions.
 
 ---
 
@@ -137,8 +134,7 @@ Each component is modular, independently testable, and designed to facilitate fu
 | Mutation Engine | ✅ Complete |
 | Execution Engine | ✅ Complete |
 | Scientific Evaluation | ✅ Complete |
-| Automated Tests | ✅ Complete |
-| Research Artifact | ✅ Ready |
+| Conference Research Artifact | ✅ Ready |
 
 ---
 
@@ -155,41 +151,37 @@ The evaluation consists of baseline workflow execution, generic workflow mutatio
 | Hypothesis-driven Workflow Mutations | 25 |
 | **Total Workflow Executions** | **370** |
 
-The evaluation pipeline automatically generates:
+The framework automatically generates:
 
 - JSON execution reports
 - CSV result summaries
-- LaTeX tables
-- Publication-ready figures
+- Publication-ready LaTeX tables
+- Publication-quality figures
 - Statistical summaries
-- Scientific evaluation reports
+- Experimental logs
 
 ---
 
 # Scientific Evaluation Pipeline
 
-> Replace the filename below with your actual evaluation pipeline figure.
-
-```markdown
 ![Scientific Evaluation Pipeline](docs/figures/fig2_evaluation_pipeline.png)
-```
 
-The evaluation pipeline automatically executes complete workflow experiments, collects execution results, compares behavioral outcomes, and produces reproducible research artifacts suitable for publication.
+The evaluation pipeline automatically executes complete workflow experiments, compares behavioral outcomes between baseline and mutated executions, and generates reproducible research artifacts suitable for scientific evaluation.
 
 ---
 
 # Repository Structure
 
-```
+```text
 hermes-framework/
 │
 ├── src/                    # Core framework implementation
 ├── tests/                  # Unit and integration tests
-├── scripts/                # Helper and execution scripts
-├── evaluation/             # Scientific evaluation pipeline
+├── scripts/                # Utility scripts
+├── evaluation/             # Experimental outputs
 ├── docs/
-│   └── figures/            # Paper and README figures
-├── configs/                # Experiment configuration files
+│   └── figures/            # Figures used in the paper and README
+├── configs/                # Experiment configurations
 ├── requirements.txt
 ├── pyproject.toml
 ├── LICENSE
@@ -215,13 +207,13 @@ python -m venv venv
 
 Activate the environment.
 
-Windows
+**Windows**
 
 ```bash
 venv\Scripts\activate
 ```
 
-Linux / macOS
+**Linux / macOS**
 
 ```bash
 source venv/bin/activate
@@ -262,20 +254,21 @@ The framework automatically performs:
 
 1. Workflow discovery
 2. State graph construction
-3. Semantic operation identification
+3. Semantic operation discovery
 4. Workflow generation
 5. Workflow mutation
 6. Automated execution
 7. Behavioral comparison
-8. Result aggregation
+8. Experimental evaluation
 
 Generated outputs include:
 
 - Raw execution reports
-- Aggregated metrics
-- CSV summaries
+- JSON summaries
+- CSV result tables
 - LaTeX tables
 - Publication-ready figures
+- Experimental logs
 
 All outputs are written automatically to the `evaluation/` directory.
 
@@ -285,7 +278,7 @@ All outputs are written automatically to the `evaluation/` directory.
 
 After execution, generated artifacts are organized as follows:
 
-```
+```text
 evaluation/
 │
 ├── reports/
@@ -301,9 +294,11 @@ This directory contains all experimental outputs required to reproduce the repor
 
 # HERMES-Bench
 
-HERMES is evaluated using **HERMES-Bench**, a purpose-built benchmark designed specifically for stateful workflow fuzzing research.
+![HERMES-Bench](docs/figures/hermes_bench.png)
 
-Unlike traditional web testing benchmarks, HERMES-Bench models realistic business workflows with persistent application state, enabling systematic evaluation of workflow-context mutations.
+HERMES is evaluated using **HERMES-Bench**, a benchmark specifically developed for stateful workflow fuzzing research.
+
+Unlike traditional web testing benchmarks, HERMES-Bench models realistic business workflows with persistent application state, enabling controlled evaluation of workflow-context mutations.
 
 Implemented functionality includes:
 
@@ -311,42 +306,42 @@ Implemented functionality includes:
 - User Authentication
 - Product Catalog
 - Shopping Cart
-- Wallet Management
+- Wallet Top-up
 - Checkout
 - Order History
 - Administrative Dashboard
 
-The benchmark also includes **seeded business-logic anomalies** for validating workflow mutation strategies.
+The benchmark also contains seeded business-logic anomalies for validating workflow mutation strategies.
 
 ---
 
 # Benchmark Workflows
 
-Representative workflows include:
+Representative workflows evaluated by HERMES include:
 
 | Workflow | Description |
 |----------|-------------|
 | User Login | Authenticate a registered user |
-| Wallet Top-up | Increase account balance |
 | Browse Catalog | Explore available products |
-| Add to Cart | Add products to shopping cart |
-| Checkout | Complete a purchase |
-| View Orders | Access purchase history |
-| Logout | Terminate authenticated session |
+| Add to Cart | Add products to the shopping cart |
+| Wallet Top-up | Increase available account balance |
+| Checkout | Complete the purchasing workflow |
+| View Orders | Access historical purchases |
+| Logout | Terminate the active session |
 
-These workflows form the baseline used throughout the experimental evaluation.
+These workflows form the baseline for all workflow mutation experiments.
 
 ---
 
 # Mutation Strategies
 
-HERMES currently supports two complementary mutation strategies.
+HERMES currently supports two complementary workflow mutation strategies.
 
 ## Generic Workflow Mutations
 
-Generic mutations explore alternative workflow executions without relying on domain-specific knowledge.
+Generic mutations systematically explore alternative workflow executions through structural modifications.
 
-Implemented operators include:
+Supported mutation operators include:
 
 - Step insertion
 - Step deletion
@@ -359,18 +354,18 @@ Implemented operators include:
 
 ## Hypothesis-driven Workflow Mutations
 
-Hypothesis-driven mutations validate security and business-logic assumptions by intentionally modifying workflow history.
+Hypothesis-driven mutations evaluate explicit business-logic assumptions by intentionally modifying workflow history.
 
-Representative examples include:
+Representative mutations include:
 
 - Checkout without authentication
-- Checkout with insufficient balance
+- Checkout with insufficient wallet balance
 - Duplicate wallet top-up
 - Unauthorized order history access
 - Missing prerequisite operations
 - Invalid workflow sequencing
 
-Each mutated workflow is executed independently and compared against the corresponding baseline execution.
+Each mutated workflow is executed independently and compared with its corresponding baseline workflow.
 
 ---
 
@@ -378,13 +373,13 @@ Each mutated workflow is executed independently and compared against the corresp
 
 HERMES emphasizes reproducible software engineering research.
 
-Running the evaluation pipeline automatically reproduces:
+Executing the evaluation pipeline automatically reproduces:
 
 - Workflow execution reports
 - JSON outputs
 - CSV summaries
-- LaTeX tables
-- Publication-ready figures
+- Publication-ready LaTeX tables
+- Publication-quality figures
 - Experimental metrics
 
 All reported experimental results are generated automatically by the framework.
@@ -410,9 +405,9 @@ This citation will be updated following the official conference publication.
 
 # Future Work
 
-Planned extensions include:
+Future research directions include:
 
-- Additional benchmark applications
+- Evaluation on additional web applications
 - New workflow mutation operators
 - LLM-assisted semantic workflow reasoning
 - Distributed workflow execution
@@ -423,7 +418,7 @@ Planned extensions include:
 
 # License
 
-This project is released under the **MIT License**.
+This project is distributed under the **MIT License**.
 
 See the `LICENSE` file for complete licensing information.
 
@@ -431,7 +426,7 @@ See the `LICENSE` file for complete licensing information.
 
 # Acknowledgements
 
-HERMES was developed as part of ongoing research in autonomous software testing and stateful web workflow fuzzing.
+HERMES was developed as part of ongoing research on autonomous software testing and stateful web workflow fuzzing.
 
 The framework is intended to support future research in:
 
@@ -453,17 +448,19 @@ The framework is intended to support future research in:
 | Mutation Engine | ✅ Complete |
 | Execution Engine | ✅ Complete |
 | Scientific Evaluation | ✅ Complete |
-| Conference Artifact | ✅ Ready |
+| Conference Research Artifact | ✅ Ready |
 
 ---
 
 <div align="center">
 
-## HERMES
+# HERMES
 
 **Hypothesis-driven Exploration through Reasoning for Modeling and Executing Semantic Workflows**
 
-*Advancing stateful web workflow fuzzing through semantic workflow mutation and reproducible scientific evaluation.*
+### Advancing Stateful Web Workflow Fuzzing through Semantic Workflow Mutation
+
+**Research Prototype • Reproducible Evaluation • Conference Research Artifact**
 
 © 2026 Hammad Sajjad Mughal
 
