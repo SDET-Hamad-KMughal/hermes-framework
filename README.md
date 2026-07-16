@@ -393,7 +393,7 @@ If you use HERMES in your research, please cite:
 ```bibtex
 @misc{hermes2026,
   title={HERMES: Hypothesis-driven Exploration through Reasoning for Modeling and Executing Semantic Workflows},
-  author={Hamad Sajad Mughal},
+  author={Hammad Sajjad Mughal},
   year={2026},
   note={Conference Research Artifact}
 }
