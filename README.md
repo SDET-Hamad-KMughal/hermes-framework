@@ -164,7 +164,7 @@ The framework automatically generates:
 
 # Scientific Evaluation Pipeline
 
-![Scientific Evaluation Pipeline](docs/figures/fig2_evaluation_pipeline.png)
+![Scientific Evaluation Pipeline](docs/figures/fig5_evaluation_pipeline.png)
 
 The evaluation pipeline automatically executes complete workflow experiments, compares behavioral outcomes between baseline and mutated executions, and generates reproducible research artifacts suitable for scientific evaluation.
 
@@ -294,7 +294,7 @@ This directory contains all experimental outputs required to reproduce the repor
 
 # HERMES-Bench
 
-![HERMES-Bench](docs/figures/hermes_bench.png)
+![HERMES-Bench](docs/figures/fig3_hermes_bench.png)
 
 HERMES is evaluated using **HERMES-Bench**, a benchmark specifically developed for stateful workflow fuzzing research.
 
